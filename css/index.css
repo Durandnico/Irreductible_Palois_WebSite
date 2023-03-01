@@ -1,0 +1,148 @@
+.my_padding {
+    position: relative;
+    height: 5.5rem;
+    background-color: red;
+}
+
+.banner {
+    z-index: -1;
+    position: relative;
+    width: 100vw;
+    height: 800px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: -6rem;
+}
+
+.main-presentation {
+    overflow: hidden;
+    position: relative;
+    max-width: 1600px;
+    padding-top: 120px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#main-h3 {
+    width: 750px;
+    font-size: 20.735px;
+    font-weight: 700;
+    font-family: "Libre Baskerville";
+    line-height: 33.1833px;
+    text-decoration: none;
+    padding-bottom: 20px;
+    margin: 0 auto;
+    margin-bottom: 96px;
+}
+
+#main-h2 {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Libre Baskerville";
+    line-height: 39px;
+    color: rgb(13, 16, 17);
+    margin: 0 auto;
+    margin-bottom: 96px;
+}
+
+
+.menu-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    
+    align-items: stretch;
+    grid-template-columns: repeat(4,minmax(200px,1fr));
+    column-gap: 32px;
+    row-gap: 24px;
+    display: grid;
+    margin-bottom: 96px;
+}
+
+.menu-image a{
+    text-decoration: none;
+}
+
+.petite-image-menu{
+    margin: 0 auto;
+    border-radius: 10%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size:cover;
+}
+
+.filter-petite-image-menu {
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    background-color: rgb(0, 0, 0, 0.52);
+    transition: background-color 0.5s;
+}
+
+#i1{
+    background-image: url(../img/banner2.JPG);
+    background-position-x: 25%;
+}
+
+
+.filter-petite-image-menu:hover{
+    background-color: rgb(0, 0, 0, 0.27);
+}
+
+#i2{
+    background-image: url(../img/casquePolonais.png);
+    background-position-y: 20%;
+}
+
+#i3{
+    background-image: url(../img/souvenir2.jpg);
+}
+
+#i4{
+    background-image: url(../img/legende.jpg);
+    background-position-y: 50%;
+}
+
+#i4 .filter-petite-image-menu{
+    background-color: rgb(0, 0, 0, 0.2);
+}
+
+
+#i4 .filter-petite-image-menu:hover{
+    background-color: rgb(245, 245, 245, 0.03);
+}
+
+.text-petite-image-menu{
+    padding-top: 66%;
+    bottom: 0;
+    text-align:center;
+
+    font-weight: 600;
+    font-family: "Libre Baskerville";
+    text-decoration: none;
+    color: rgb(245, 245, 245);
+}
+
+.text-petite-image-menu h3{
+    margin: 0 auto;
+    font-size: 24px;
+    text-decoration: none;
+    margin-bottom: 17px;
+}
+
+.text-petite-image-menu p{
+    margin: 0 auto;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+
