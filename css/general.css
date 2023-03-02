@@ -8,3 +8,9 @@ body{
     min-height: 100vh;
     background-color: #F1FAEE;
 }
+
+.my_padding {
+    position: relative;
+    height: 5.5rem;
+    background-color: red;
+}
