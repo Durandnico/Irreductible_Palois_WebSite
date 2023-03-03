@@ -9,20 +9,22 @@
     padding-bottom: 40px;
 }
 
+.big_filter {
+    filter: brightness(50%);
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 1000;
+    height: 100vh;
+}
 table{
     position: relative;
     width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #000;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
 }
 
 tr{
-    position: relative;
-    background-color: aquamarine;
-    
+    position: relative; 
 }
 
 td{
@@ -33,6 +35,7 @@ td{
 
 
 .product {
+    border: 1px solid rgb(0,0,0,0.1);
     position: relative;
     width: 95%;
     height: 100%;
@@ -99,15 +102,15 @@ td{
     height: 32.2px;
     margin-top: 2%;
     margin-bottom: 2%;
-    background-color: orange;
+    background-color: aquamarine;
 
-    background-image: linear-gradient(rgb(247, 223, 165), rgb(240, 193, 75));
+    background-image: linear-gradient(rgb(165, 203, 247), rgb(75, 160, 240));
     background-origin: padding-box;
     background-position-x: 0%;
     background-position-y: 0%;
     background-repeat: repeat;
     background-size: auto;
-    border-bottom-color: rgb(132, 106, 41);
+    border-bottom-color: rgb(41, 111, 132);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     border-bottom-style: solid;
@@ -117,13 +120,13 @@ td{
     border-image-slice: 100%;
     border-image-source: none;
     border-image-width: 1;
-    border-left-color: rgb(156, 126, 49);
+    border-left-color: rgb(49, 108, 156);
     border-left-style: solid;
     border-left-width: 1px;
-    border-right-color: rgb(156, 126, 49);
+    border-right-color: rgb(49, 99, 156);
     border-right-style: solid;
     border-right-width: 1px;
-    border-top-color: rgb(168, 135, 52);
+    border-top-color: rgb(52, 145, 168);
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-top-style: solid;
@@ -141,4 +144,156 @@ td{
 .content p{
     position: relative;
     top: 25%;
+}
+
+
+.test{
+    position: absolute;
+    width: 50vw;
+    height: 60vh;
+    background-color: rgb(255,255,255);
+    z-index: 1001;
+    top: 25%;
+    left: 25%;
+    object-position: center;
+}
+
+.product-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98%;
+    height: 96%;
+    margin: 0 auto;
+    margin-top: 1.3%;
+    margin-top: 1.3%;
+    overflow: hidden;
+    background-color: aqua;
+}
+
+.product-content-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: rebeccapurple;
+    margin-right: 1.5%;
+    background-image: url("../img/NFC.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.product-content-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-left: 1.5%;
+    background-color: yellowgreen;
+
+    font-weight: 600;
+    font-family: "Libre Baskerville";
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-content-info h1 {
+    margin-top: 2%;
+}
+.product-content-info h3 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.quantity {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    background-color: aqua;
+}
+
+.quantity input {
+    position: relative;
+    width: 80%;
+    height: 32.2px;
+    text-align: center;
+    border: 1px solid rgb(0,0,0,0.1);
+}
+
+.btnplusmoins {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    height: 100%;
+    margin-left: 10px;
+}
+.btnplusmoins button {
+    position: relative;
+    height: 32.2px;
+}
+
+.product-content-info button{
+    position: relative;
+    width: 100%;
+    height: 32.2px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: aquamarine;
+
+    background-image: linear-gradient(rgb(165, 203, 247), rgb(75, 160, 240));
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-size: auto;
+    border-bottom-color: rgb(41, 111, 132);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+    border-left-color: rgb(49, 108, 156);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: rgb(49, 99, 156);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-top-color: rgb(52, 145, 168);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    box-shadow: none;
+    box-sizing: border-box;
+
+    transition: background-color 0.5s;
+}
+
+.product-content-info button:hover {
+    background-color: rgb(0,0,0,0.03);
+}
+
+.product-content-info p {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
