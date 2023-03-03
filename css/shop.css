@@ -10,6 +10,7 @@
 }
 
 table{
+    position: relative;
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #000;
@@ -19,19 +20,20 @@ table{
 }
 
 tr{
+    position: relative;
     background-color: aquamarine;
     
 }
 
 td{
+    position: relative;
     width: 25%;
     height: 50vh;
 }
 
 
 .product {
-    display: flex;
-    flex-direction: column  ;
+    position: relative;
     width: 95%;
     height: 100%;
     text-align: left;
@@ -41,6 +43,7 @@ td{
 }
 
 .product-img {
+    position: relative;
     width: 94%;
     height: 65%;
     margin: 0 auto;
@@ -51,6 +54,7 @@ td{
 }
 
 .product-img img{
+    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 10%;
@@ -58,6 +62,7 @@ td{
 }
 
 .content {
+    position: relative;
     width: 100%;
     height: 30%;
     padding-left: 10px;
@@ -88,6 +93,7 @@ td{
 }
 
 .content button {
+    position: relative;
     margin: 0 auto;
     width: 90%;
     height: 32.2px;
@@ -130,4 +136,9 @@ td{
 
 .my_filter:hover {
     background-color: rgb(0,0,0,0.03);
+}
+
+.content p{
+    position: relative;
+    top: 25%;
 }
