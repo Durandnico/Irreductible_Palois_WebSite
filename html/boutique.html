@@ -6,14 +6,15 @@
         <link rel="stylesheet" href="../css/header.css">
         <link rel="stylesheet" href="../css/shop.css">
         <link rel="stylesheet" href="../css/footer.css">
+        <script type="text/javascript" src="../js/shop.js"></script>
     </head>
 
     <body>
-        <div class="test">
+        <div class="Zoomed-product" hidden>
             <div class="product-content">
-                <div class="product-content-image"></div>
+                <div id="img-background" class="product-content-image"></div>
                 <div class="product-content-info">
-                    <div class="text">
+                    <div id="intels" class="text">
                         <h1>Casque polonais (légérement abimé)</h1>
                         <h3>Utile pour initiation de famille!</h3>
                         <h3>conseil d'utilisation: préparer 5 shooters sur une table, munissez-vous d'objets insolites (pied de table, panneau de circulation, gant de boxe) et surtout n'oubliez pas d'immortaliser le moment</h3>
@@ -25,13 +26,14 @@
                         <input type="number" class="number" value="1"/>
                         <div class="btnplusmoins"> 
                             <button class="plus">+</button>
-                            <button class="minus">-</button>
+                            <button class="minus" onclick="alert('test');">-</button>
                         </div>
                     </fieldset>
                     
                     <button><div class="my_filter"><p>Acheter</p></div></button>
                 </div>    
             </div>
+            <button id="quit">X</button>
         </div>
 
         <div class="big_filter">
@@ -78,7 +80,7 @@
                                         <h4>Casque polonais (légérement abimé)</h4>
                                         <h5>Utile pour initiation de famille</h5>
                                         <h3>69€</h3>
-                                        <button><div class="my_filter"><p>Acheter</p></div></button>
+                                        <button onclick="zoom_product(this)"><div class="my_filter"><p>Acheter</p></div></button>
                                     </div>
                                 </div>
                             </td>
