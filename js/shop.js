@@ -143,9 +143,10 @@ function plusmoins(int_value){
     else if (int_value == -1){
         let value = --document.getElementById("qte").value;
         
-        if (value <= 0)
-            value = 1;
+        if (value < 0)
+            value = 0;
 
+    
         document.getElementById("qte").value = value;
     }
 
