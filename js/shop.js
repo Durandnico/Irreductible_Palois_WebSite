@@ -1,7 +1,7 @@
 /* **************************************************************************** */
 /*                                                                              */
 /*                                                       ::::::::  :::   :::    */
-/*   Proj_Name                                          :+:    :+: :+:   :+:    */
+/*   IR_Website                                         :+:    :+: :+:   :+:    */
 /*                                                    +:+         +:+ +:+       */
 /*   By: Durandnico <durandnico@cy-tech.fr>          +#+          +#++:         */
 /*                                                 +#+           +#+            */
@@ -56,6 +56,9 @@ function zoom_product(that)
 }
 
 
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
 /*!
  *  \fn function close_zoomed_product(that)
  *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
@@ -81,6 +84,10 @@ function close_zoomed_product()
     full_product.setAttribute('hidden', 'true');
 }
 
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
 /*!
  *  \fn function switch_background_filter()
  *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
@@ -101,6 +108,10 @@ function switch_background_filter()
 
     return !filtered;
 }
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
 
 /*!
  *  \fn function show_zoomed_product(that)
@@ -129,6 +140,10 @@ function show_zoomed_product(that)
     document.getElementById("qte").value = 1;
 }
 
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
 /*!
  *  \fn function plusmoins(int)
  *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
@@ -154,3 +169,8 @@ function plusmoins(int_value){
         console.log("Wrong value");
 
 }
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+
