@@ -16,12 +16,22 @@
     min-height: 100vh;
     width: 100%;
 }
+
+.banner_intel{
+    background-color: rgb(51,51,51);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}
+
 table{
     position: relative;
     width: 100%;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 tr{
@@ -149,12 +159,12 @@ td{
 
 
 .Zoomed-product{
-    position: absolute;
+    position: fixed;
     width: 50vw;
     height: 60vh;
     background-color: rgb(255,255,255);
     z-index: 1001;
-    top: 25%;
+    top: 15%;
     left: 25%;
     object-position: center;
 }
@@ -187,7 +197,6 @@ td{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: left;
     width: 100%;
     height: 100%;
     margin: 0 auto;
