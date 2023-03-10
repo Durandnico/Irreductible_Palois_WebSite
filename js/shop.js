@@ -22,8 +22,9 @@
 
 /* ********************************  Global const  ******************************************** */
 
-const big_filter = document.getElementsByClassName('big_filter')[0]; // The background filter
-const full_product = document.getElementsByClassName('Zoomed-product')[0]; // The zoomed product image and description div
+const big_filter    = document.getElementsByClassName('big_filter')[0];     // The background filter
+const header_filter = document.getElementsByClassName('header_filter')[0]   // The header filter
+const full_product  = document.getElementsByClassName('Zoomed-product')[0]; // The zoomed product image and description div
 
 /* ********************************  Global var  ********************************************** */
 
@@ -60,7 +61,7 @@ function zoom_product(that)
 
 
 /*!
- *  \fn function close_zoomed_product(that)
+ *  \fn function close_zoomed_product()
  *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
  *  \version 1.0
  *  \date Mon 06 March 2023 - 14:57:07
@@ -99,11 +100,19 @@ function close_zoomed_product()
 function switch_background_filter()
 {
     if (filtered) {
+        /* unset the body filter */
         big_filter.style.backgroundColor = "rgba(0,0,0,0)";
         big_filter.style.filter = "brightness(100%)";
+
+        /* unset the header filter */
+        header_filter.style.zIndex = "0";
     } else {
+        /* set the boyd filter */
         big_filter.style.backgroundColor = "rgba(0,0,0,0.5)";
         big_filter.style.filter = "brightness(50%)";
+
+        /*set the header filter*/
+        header_filter.style.zIndex = "100000";
     }
 
     return !filtered;

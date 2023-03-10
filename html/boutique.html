@@ -7,7 +7,29 @@
         <link rel="stylesheet" href="../css/shop.css">
         <link rel="stylesheet" href="../css/footer.css">
     </head>
+    
+    <header>
+            <img id="main_logo" src="../img/logo.png" onclick="location.href='../index.html';" alt="logo" />
+        
+            <ul class="menu">
+                <li><a href="nous.html">Nous</a></li>
+                <li><a href="boutique.html">Boutique</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="candidature.html">Candidature</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        
+            <ul class="menu-sign">
+                <li><a href="connexion.html">Connexion</a></li>
+                <li><a href="inscription.html">Inscription</a></li>
+            </ul>
+    </header>
 
+    <div class="header_filter">
+
+    </div>
+
+</div>
     <body>
         <div class="Zoomed-product" hidden onblur="close_zoomed_product(this)">
             <div class="product-content">
@@ -39,23 +61,6 @@
 
         <div class="big_filter">
 
-            <header>
-                <img id="main_logo" src="../img/logo.png" onclick="location.href='../index.html';" alt="logo" />
-            
-                <ul class="menu">
-                    <li><a href="nous.html">Nous</a></li>
-                    <li><a href="boutique.html">Boutique</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
-                    <li><a href="candidature.html">Candidature</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            
-                <ul class="menu-sign">
-                    <li><a href="connexion.html">Connexion</a></li>
-                    <li><a href="inscription.html">Inscription</a></li>
-                </ul>
-            
-            </header>
 
             <div class="my_padding"></div>
 
@@ -69,9 +74,6 @@
 
                 <div class="vitrine">
                     <table>
-                        <thead>
-                    
-                        </thead>
                         <tbody>
                             <tr>
                                 <td>
@@ -122,13 +124,13 @@
                                 <td>
                                     <div class="product" >
                                         <div class="product-img">
-                                            <img src="../img/logo.png" alt="maillot" />
+                                            <img src="../img/Litron.webp" id="contain" alt="Litron" />
                                         </div>
 
                                         <div class="content">
-                                            <h4>Casque polonais (légérement abimé)</h4>
-                                            <h5>Utile pour initiation de famille</h5>
-                                            <h3>69€</h3>
+                                            <h4>Litron du VB</h4>
+                                            <h5>La seule vrai taille de bière</h5>
+                                            <h3>21,89€</h3>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -138,13 +140,28 @@
                                 <td>
                                     <div class="product" >
                                         <div class="product-img">
-                                            <img src="../img/NFC2.jpg" alt="maillot" />
+                                            <img src="../img/NFC2.jpg" alt="cigare" />
                                         </div>
 
                                         <div class="content">
-                                            <h4>NFC du logo irréductible</h4>
-                                            <h5>Le 1er et seul NFT du logo des IR</h5>
-                                            <h3>1138€</h3>
+                                            <h4>Cigare</h4>
+                                            <h5>Cigare préferez de Nico</h5>
+                                            <h3>12€</h3>
+                                            <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="product" >
+                                        <div class="product-img">
+                                            <img src="../img/bob.png" alt="Bob" />
+                                        </div>
+
+                                        <div class="content">
+                                            <h4>Bob Cochonou</h4>
+                                            <h5>L'apogée du style</h5>
+                                            <h3>19,99€</h3>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -166,7 +183,7 @@
                             <td>
                                 <div class="product" >
                                     <div class="product-img">
-                                        <img src="../img/NFC2.jpg" alt="Captain-Morgan" />
+                                        <img src="../img/captain.png" id="contain" alt="Captain-Morgan" />
                                     </div>
 
                                     <div class="content">
@@ -181,7 +198,7 @@
                             <td>
                                 <div class="product" >
                                     <div class="product-img">
-                                        <img src="../img/logo.png" alt="Pauliakov" />
+                                        <img src="../img/Poliakov.png" id="contain" alt="Pauliakov" />
                                     </div>
 
                                     <div class="content">
@@ -196,21 +213,89 @@
                             <td>
                                 <div class="product" >
                                     <div class="product-img">
-                                        <img src="../img/NFC2.jpg" alt="Balentine" />
+                                        <img src="../img/ballantines.webp" id="contain" alt="Ballantine" />
                                     </div>
 
                                     <div class="content">
-                                        <h4>Balentine</h4>
+                                        <h4>Ballantine's</h4>
                                         <h5>Pour les parties de poker !</h5>
                                         <h3>19€</h3>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
                             </td>
+
+                            <td>
+                                <div class="product" >
+                                    <div class="product-img">
+                                        <img src="../img/ricard.webp" id="contain" alt="Ricard" />
+                                    </div>
+
+                                    <div class="content">
+                                        <h4>Ricard</h4>
+                                        <h5>Midi et quart, heure du ricard</h5>
+                                        <h3>15€</h3>
+                                        <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="product" >
+                                    <div class="product-img">
+                                        <img src="../img/jager.webp" id="contain" alt="Jager" />
+                                    </div>
+
+                                    <div class="content">
+                                        <h4>Jäger</h4>
+                                        <h5>A base de plante, comme les joins</h5>
+                                        <h3>22€</h3>
+                                        <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="product" >
+                                    <div class="product-img">
+                                        <img src="../img/Baileys.png" id="contain" alt="Baileys" />
+                                    </div>
+
+                                    <div class="content">
+                                        <h4>Baileys</h4>
+                                        <h5>Pour remplacer le café</h5>
+                                        <h3>12€</h3>
+                                        <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
+                                    </div>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="product" >
+                                    <div class="product-img">
+                                        <img src="../img/Maydie.png" id="contain" alt="Maydie" />
+                                    </div>
+
+                                    <div class="content">
+                                        <h4>Maydie</h4>
+                                        <h5>Vin rouge sucré Béarnais</h5>
+                                        <h3>15€</h3>
+                                        <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
             
+            <div class="banner_intel">
+                <h1>Random stuff</h1>
+                <p>je sais pas encore quoi mettre</p>
+            </div>
+
+
             <footer>
                 <div class="legacy">
                     <p>© 2023 Les irréductibles Palois | Un site de l'école <a style="color: rgb(34, 108, 181)" href="https://cytech.cyu.fr/cy-tech-pau">CY-Tech (ex : EISTI)</a></p>
