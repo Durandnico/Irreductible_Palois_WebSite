@@ -10,7 +10,12 @@ body{
     background-color: #F1FAEE;
 }
 
-.my_padding {
+.my_padding_top {
     position: relative;
     height: 6rem;
+}
+
+.my_padding_bot {
+    position: relative;
+    height: 40px;
 }
