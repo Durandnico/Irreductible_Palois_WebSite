@@ -43,16 +43,17 @@
                         <h2>69€</h2>
                     </div>
 
-                    <fieldset class="quantity">
-                        <legend>Quantité</legend>
-                        <input id="qte" type="number" class="number" value=1 />
-                        <div class="btnplusmoins"> 
-                            <button class="plus" onclick="plusmoins(+1)"><div class="my_filter">+</div></button>
-                            <button class="minus" onclick="plusmoins(-1)"><div class="my_filter">-</div></button>
-                        </div>
-                        <p hidden> quantité max : <span id="q_max"></span>€</p>
-                    </fieldset>
-                    
+                    <div class="quantite">
+                        <fieldset class="quantity">
+                            <legend>Quantité</legend>
+                            <input id="qte" type="number" class="number" value=1 />
+                            <div class="btnplusmoins"> 
+                                <button class="plus" onclick="plusmoins(+1)"><div class="my_filter">+</div></button>
+                                <button class="minus" onclick="plusmoins(-1)"><div class="my_filter">-</div></button>
+                            </div>
+                        </fieldset>
+                        <span> quantité max : <span id="q_max"></span></span>
+                    </div>
                     <button><div class="my_filter"><p>Acheter</p></div></button>
                 </div>    
             </div>
@@ -70,6 +71,11 @@
                 <div class="banner_intel">
                     <h1>Les goodies</h1>
                     <p>Soyez-unique avec vos goodies des irréductible</p>
+                    <label style="position: absolute; top:15; right:15;" class="switch">
+                        <input onclick="switch_quantity('q_max_goodies');" type="checkbox" />
+                        <span></span>
+                    </label>
+                    <span style="position: absolute; bottom: 5; right: 12;">Quantité</span>
                 </div>
 
                 <div class="vitrine">
@@ -86,6 +92,7 @@
                                             <h4>Casque polonais (légérement abimé)</h4>
                                             <h5>Utile pour initiation de famille</h5>
                                             <h3>69€</h3>
+                                            <span class="q_max_goodies" style="visibility:hidden;">quantité max : <span id="q_max">1</span></span>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -99,8 +106,9 @@
 
                                         <div class="content">
                                             <h4>Table de beerpong ! (sans tréteau)</h4>
-                                            <h5>Entrainez-vous au BP sur la table des légendes !</h5>
+                                            <h5>Légendaire table de IR</h5>
                                             <h3>420€</h3>
+                                            <span class="q_max_goodies" style="visibility:hidden;">quantité max : <span>1</span></span>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -114,8 +122,9 @@
 
                                         <div class="content">
                                             <h4>NFC du logo irréductible</h4>
-                                            <h5>Le 1er et seul NFT du logo des IR</h5>
+                                            <h5>Le seul NFT des IR</h5>
                                             <h3>1138€</h3>
+                                            <span class="q_max_goodies" style="visibility:hidden;">quantité max : <span>1</span></span>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -131,6 +140,7 @@
                                             <h4>Litron du VB</h4>
                                             <h5>La seule vrai taille de bière</h5>
                                             <h3>21,89€</h3>
+                                            <span class="q_max_goodies" style="visibility:hidden;">quantité max : <span>15</span></span>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -145,8 +155,9 @@
 
                                         <div class="content">
                                             <h4>Cigare</h4>
-                                            <h5>Cigare préferez de Nico</h5>
+                                            <h5>Cigare préferé de Nico</h5>
                                             <h3>12€</h3>
+                                            <span class="q_max_goodies" style="visibility:hidden;">quantité max : <span>500</span></span>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -162,6 +173,7 @@
                                             <h4>Bob Cochonou</h4>
                                             <h5>L'apogée du style</h5>
                                             <h3>19,99€</h3>
+                                            <span class="q_max_goodies" style="visibility:hidden;">quantité max : <span>12</span></span>
                                             <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                         </div>
                                     </div>
@@ -175,6 +187,11 @@
                 <div class="banner_intel">
                     <h1>Alcool</h1>
                     <p>Pour ne pas venir aux soirées les mains vident ;)</p>
+                    <label style="position: absolute; top:15; right:15;" class="switch">
+                        <input onclick="switch_quantity('q_max_OH');" type="checkbox" />
+                        <span></span>
+                    </label>
+                    <span style="position: absolute; bottom: 5; right: 12;">Quantité</span>
                 </div>
 
                 <table class="vitrine">
@@ -190,6 +207,7 @@
                                         <h4>Captain Morgan</h4>
                                         <h5>Le rhum préférez de CY-Tech</h5>
                                         <h3>17€</h3>
+                                        <span class="q_max_OH" style="visibility:hidden;">quantité max : <span>150</span></span>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
@@ -205,6 +223,7 @@
                                         <h4>Poliakov</h4>
                                         <h5>Simple et classique pour t'exploser le crane</h5>
                                         <h3>14€</h3>
+                                        <span class="q_max_OH" style="visibility:hidden;">quantité max : <span>200</span></span>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
@@ -220,6 +239,7 @@
                                         <h4>Ballantine's</h4>
                                         <h5>Pour les parties de poker !</h5>
                                         <h3>19€</h3>
+                                        <span class="q_max_OH" style="visibility:hidden;">quantité max : <span>30</span></span>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
@@ -235,6 +255,7 @@
                                         <h4>Ricard</h4>
                                         <h5>Midi et quart, heure du ricard</h5>
                                         <h3>15€</h3>
+                                        <span class="q_max_OH" style="visibility:hidden;">quantité max : <span>65</span></span>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
@@ -251,6 +272,7 @@
                                         <h4>Jäger</h4>
                                         <h5>A base de plante, comme les joins</h5>
                                         <h3>22€</h3>
+                                        <span class="q_max_OH" style="visibility:hidden;">quantité max : <span>300</span></span>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
@@ -266,6 +288,7 @@
                                         <h4>Baileys</h4>
                                         <h5>Pour remplacer le café</h5>
                                         <h3>12€</h3>
+                                        <span class="q_max_OH" style="visibility:hidden;">quantité max : <span>15</span></span>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
@@ -281,6 +304,7 @@
                                         <h4>Maydie</h4>
                                         <h5>Vin rouge sucré Béarnais</h5>
                                         <h3>15€</h3>
+                                        <span class="q_max_OH" style="visibility:hidden;">quantité max : <span>5</span></span>
                                         <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>
                                     </div>
                                 </div>
@@ -293,6 +317,11 @@
             <div class="banner_intel">
                 <h1>Random stuff</h1>
                 <p>je sais pas encore quoi mettre</p>
+                <label style="position: absolute; top:15; right:15;" class="switch">
+                    <input onclick="switch_quantity('q_max_autre');" type="checkbox" />
+                    <span></span>
+                </label>
+                <span style="position: absolute; bottom: 5; right: 12;">Quantité</span>
             </div>
 
             <div class="my_padding_bot"></div>

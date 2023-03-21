@@ -31,7 +31,7 @@ tr{
 td{
     position: relative;
     width: 25%;
-    height: 50vh;
+    height: 55vh;
 }
 
 
@@ -313,4 +313,12 @@ td{
 
 #contain{
     object-fit: contain;
+}
+
+.q_max{
+    visibility: hidden;
+}
+
+.quantite span{
+    margin-left: 25%;
 }
