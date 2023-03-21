@@ -30,6 +30,8 @@ const full_product  = document.getElementsByClassName('Zoomed-product')[0]; // T
 
 var filtered = false; // True if the background is filtered, false otherwise
 var itsborken = false; // because close func is broken
+var hid_quant = true; // True if the quantity is hidden, false otherwise
+var q_max = 0; // The maximum quantity of the product
 
 /* ********************************  function  ************************************************ */
 
@@ -52,6 +54,7 @@ function zoom_product(that)
     /* set the close function */
     big_filter.onclick = close_zoomed_product;
 
+    /* set filter */
     filtered = switch_background_filter();
     show_zoomed_product(that);
 }
@@ -144,6 +147,10 @@ function show_zoomed_product(that)
     full_product_intels[0].innerHTML = product.children[1].children[0].innerHTML;
     full_product_intels[1].innerHTML = product.children[1].children[1].innerHTML;
     full_product_intels[3].innerHTML = product.children[1].children[2].innerHTML;
+    
+    /* set the quantity */
+    full_product.children[0].children[1].children[1].children[1].children[0].innerHTML = that.parentNode.children[3].children[0].innerHTML;
+    q_max = parseInt(that.parentNode.children[3].children[0].innerHTML);
 
     /*set quantity input to 1 */
     document.getElementById("qte").value = 1;
@@ -161,7 +168,7 @@ function show_zoomed_product(that)
  *  \brief increment or decrement the quantity input 
  */
 function plusmoins(int_value){
-    if(int_value == 1)
+    if(int_value == 1 && document.getElementById("qte").value < q_max)
         document.getElementById("qte").value++;  
 
     else if (int_value == -1){
@@ -182,4 +189,43 @@ function plusmoins(int_value){
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
+
+/*!
+ *  \fn function switch_quantity()
+ *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
+ *  \version 1.0
+ *  \date Tue 21 March 2023 - 10:37:59
+ *  \brief Switch the visibility of the quantity input
+ *  \param classname:       The classname of the quantity input
+ */
+function switch_quantity(classname)
+{
+    if(hid_quant)
+        all_quantity_visibility(classname, "visible");
+    else
+        all_quantity_visibility(classname, "hidden");
+
+    hid_quant = !hid_quant;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*!
+ *  \fn function all_quantity_visibility(state)
+ *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
+ *  \version 1.0
+ *  \date Tue 21 March 2023 - 10:25:51
+ *  \brief  Set the visibility of all quantity input
+ *  \param classname:       The classname of the quantity input
+ *  \param state:           The state of the visibility
+ */
+function all_quantity_visibility(classname, state)
+{
+    for(let quant of document.getElementsByClassName(classname))
+        quant.style.visibility =  state;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
 

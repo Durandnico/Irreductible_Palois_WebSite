@@ -46,7 +46,7 @@
                                 <div class="input-field">
                                     <label for="prenom"><span class="label-style">Prénom</span></label>
                                     <input required='required' type="text" id="prenom" name="prenom" placeholder="Votre prénom..">
-                                    <div class="verif" id="verif_prenom"></div>
+                                    <div class="verif">⚠ <span id="verif_prenom">Message d'error prenom</span></div>
                                 </div>
                             </div>
                             
@@ -54,7 +54,7 @@
                                 <div class="input-field">
                                     <label for="nom"><span class="label-style">Nom</span></label>
                                     <input required='required' type="text" id="nom" name="nom" placeholder="Votre nom..">
-                                    <div class="verif" id="verif_nom"></div>
+                                    <div class="verif" id="verif_nom">⚠ <span id="verif_nom">Message d'error nom</span></div>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                             <div class="input-field">
                                 <label for="email"><span class="label-style">Email</span></label>
                                 <input required='required' type="text" id="email" name="email" placeholder="Votre email..">
-                                <div class="verif" id="verif_email"></div>
+                                <div class="verif">⚠ <span id="verif_email">Message d'error mel</span></div>
                             </div>
                         </div>
                         
@@ -89,7 +89,7 @@
                                     </div>
                                     
                                 </fieldset>
-                                <div class="verif" id="verif_genre"></div>    
+                                <div class="verif">⚠ <span id="verif_genre">Merci de selectionner un genre</span></div>    
                             </div>
                         
                             <div class="right-intel">
@@ -102,17 +102,15 @@
                                             <option value="professeur">Professeur</option>
                                             <option value="autre">Autre</option>
                                         </select>
-                                        <div class="verif" id="verif_job"></div>
+                                        <div class="verif">⚠ <span id="verif_job">Message d'erreur, selectionner</span></div>
                                     </div>
                                 </div>
-                                <label for="job"></label>
-                                <div class="verif" id="verif_job"></div>
                                 
                                 <div class="bday">
                                     <div class="input-field">
                                         <label for="birthday"><span class="label-style">Date de naissance</span></label>
-                                        <input required='required' type="date" id="birthday" name="birthday">
-                                        <div class="verif" id="verif_bday"></div>
+                                        <input required='required' min="2002-09-03" type="date" id="birthday" name="birthday">
+                                        <div class="verif">⚠ <span id="verif_bday">Message d'erreur bday!</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +124,7 @@
                             <div class="input-field">
                                 <label for="subject"><span class="label-style">Sujet</span></label>
                                 <input required='required' type="text" id="subject" name="subject" placeholder="Sujet...">
-                                <div class="verif" id="verif_subject"></div>
+                                <div class="verif">⚠ <span id="verif_subject">Message d'erreur car oublie</span></div>
                             </div>
                         </div>
 
@@ -134,7 +132,7 @@
                             <div class="input-field">
                                 <label for="message"><span class="label-style">Message</span></label>
                                 <textarea id="message" name="message" placeholder="Votre message.." style="height:200px; resize: none;"></textarea>
-                                <div class="verif" id="verif_message"></div>
+                                <div class="verif">⚠ <span id="verif_message">Message d'erreur bouboubou</span></div>
                             </div>
 
                             <div class="envoyer">
@@ -160,4 +158,6 @@
             <p>Créé par Durand Nicolas</p>
         </div>
     </footer>
+
+    <script src="../js/verif.js"></script>
 </html>
