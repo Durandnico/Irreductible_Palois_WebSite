@@ -14,15 +14,6 @@
     margin-top: -6rem;
 }
 
-.main-presentation {
-    overflow: hidden;
-    position: relative;
-    max-width: 1600px;
-    padding-top: 120px;
-    margin: 0 auto;
-    text-align: left;
-}
-
 #main-h3 {
     width: 750px;
     font-size: 20.735px;

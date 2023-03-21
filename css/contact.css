@@ -1,14 +1,3 @@
-
-.main-presentation {
-    overflow: hidden;
-    position: relative;
-    max-width: 1600px;
-    padding-top: 120px;
-    margin: 0 auto;
-    text-align: left;
-    padding-bottom: 40px;
-}
-
 .contact_us {
     width: 90%;
     margin: 0 auto;
@@ -44,7 +33,7 @@ form {
     padding: 0 10px;
 }
 
-.input-field input, .input-field select {
+.input-field input, .input-field select, .input-field textarea{
     font-size: larger;
     height: 30px;
     margin-top: -7px;
@@ -53,12 +42,18 @@ form {
     background-color: #F1FAEE;
 }
 
-.input-field select {
+.input-field select, .input-field input[type=date] {
     height: 40px;
     font-size: small;
-    fon
 }
 
+.input-field input[type=submit]{
+    width: 35%;
+    font-size: bold;
+    padding: 0;
+    margin-left: 57%;
+    background-color: #ffc20c
+}
 
 .personnal-intel {
     text-align: center;
@@ -103,15 +98,15 @@ form {
 
 .more-intel {
     padding-top: 10px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.genre-job {
-    width: 50%;
+.left-intel {
+    width: 40%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -138,4 +133,30 @@ form {
     font-size: larger;
     font-weight: bold;
     margin-left: 12px;
+}
+
+.right-intel {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+fieldset {
+    border-radius: 10px;
+}
+
+.input-field input[type=submit] {
+    width: 35%;
+    font-size: bold;
+    padding: 0;
+    margin-left: 57%;
+    background-color: #ffc20c;
+    transition: background-color 0.2s;
+}
+
+.input-field input[type=submit]:hover {
+    background-color: rgba(255, 194, 12, 0.72);
 }

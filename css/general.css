@@ -19,3 +19,21 @@ body{
     position: relative;
     height: 40px;
 }
+
+.main-presentation {
+    overflow: hidden;
+    position: relative;
+    max-width: 1600px;
+    padding-top: 120px;
+    margin: 0 auto;
+    text-align: left;
+    padding-bottom: 40px;
+}
+
+.banner_intel{
+    background-color: rgb(51,51,51);
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+}

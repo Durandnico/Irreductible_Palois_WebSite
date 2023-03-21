@@ -32,8 +32,10 @@
 
         <div class="main-presentation">
             <div class="contact_us">
-                <h1>Contactez-nous</h1>
-                <p>Vous avez une question ? Vous souhaitez nous faire part d'un problème ? N'hésitez pas à nous contacter !</p>
+                <div class="banner_intel">
+                    <h1>Contactez-nous</h1>
+                    <p>Vous avez une question ? Vous souhaitez nous faire part d'un problème ? N'hésitez pas à nous contacter !</p>
+                </div>
 
                 <form>
                     
@@ -43,7 +45,7 @@
                             <div class="prenom">
                                 <div class="input-field">
                                     <label for="prenom"><span class="label-style">Prénom</span></label>
-                                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom..">
+                                    <input required='required' type="text" id="prenom" name="prenom" placeholder="Votre prénom..">
                                     <div class="verif" id="verif_prenom"></div>
                                 </div>
                             </div>
@@ -51,7 +53,7 @@
                             <div class="nom">
                                 <div class="input-field">
                                     <label for="nom"><span class="label-style">Nom</span></label>
-                                    <input type="text" id="nom" name="nom" placeholder="Votre nom..">
+                                    <input required='required' type="text" id="nom" name="nom" placeholder="Votre nom..">
                                     <div class="verif" id="verif_nom"></div>
                                 </div>
                             </div>
@@ -60,35 +62,37 @@
                         <div class="mail">
                             <div class="input-field">
                                 <label for="email"><span class="label-style">Email</span></label>
-                                <input type="text" id="email" name="email" placeholder="Votre email..">
+                                <input required='required' type="text" id="email" name="email" placeholder="Votre email..">
                                 <div class="verif" id="verif_email"></div>
                             </div>
                         </div>
                         
                         <div class="more-intel">
-                            <div class="genre-job">
+                            <div class="left-intel">
 
                                 <fieldset class="genre">
                                     <legend>Genre</legend>
                                     
                                     <div class="radio-btn">
                                         <label for="Homme">Homme</label>
-                                        <input type="radio" name="genre" id="Homme">
+                                        <input required='required' type="radio" name="genre" id="Homme">
                                     </div>
 
                                     <div class="radio-btn">
                                         <label for="Femme">Femme</label>
-                                        <input type="radio" name="genre" id="Femme">
+                                        <input required='required' type="radio" name="genre" id="Femme">
                                     </div>
 
                                     <div class="radio-btn">
-                                        <label for="Dragon">ButtStalion</label>
-                                        <input type="radio" name="genre" id="Dragon">
+                                        <label for="Dragon">MétéoRémite</label>
+                                        <input required='required' type="radio" name="genre" id="Dragon">
                                     </div>
                                     
                                 </fieldset>
-                                <div class="verif" id="verif_genre"></div>
-                                
+                                <div class="verif" id="verif_genre"></div>    
+                            </div>
+                        
+                            <div class="right-intel">
                                 <div class="job">
                                     <div class="input-field">
                                         <label for="job"><span class="label-style">Metier</span></label>
@@ -103,30 +107,43 @@
                                 </div>
                                 <label for="job"></label>
                                 <div class="verif" id="verif_job"></div>
-
+                                
+                                <div class="bday">
+                                    <div class="input-field">
+                                        <label for="birthday"><span class="label-style">Date de naissance</span></label>
+                                        <input required='required' type="date" id="birthday" name="birthday">
+                                        <div class="verif" id="verif_bday"></div>
+                                    </div>
+                                </div>
                             </div>
-                            
-                            <div class="bday">
-                                <label for="birthday">Date de naissance</label>
-                                <input type="date" id="birthday" name="birthday">
-                                <div class="verif" id="verif_bday">check</div>
-                            </div>
-                            
                         </div>
                     </div>
                     
 
                     <div class="message">
 
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" placeholder="Sujet..."></input>
-                        <div class="verif" id="verif_subject"></div>
+                        <div class="subject">
+                            <div class="input-field">
+                                <label for="subject"><span class="label-style">Sujet</span></label>
+                                <input required='required' type="text" id="subject" name="subject" placeholder="Sujet...">
+                                <div class="verif" id="verif_subject"></div>
+                            </div>
+                        </div>
 
-                        <label for="message">Voter message...</label>
-                        <textarea id="message" name="message" placeholder="Votre message.." style="height:200px"></textarea>
-                        <div class="verif" id="verif_message"></div>
+                        <div class="text-message">
+                            <div class="input-field">
+                                <label for="message"><span class="label-style">Message</span></label>
+                                <textarea id="message" name="message" placeholder="Votre message.." style="height:200px; resize: none;"></textarea>
+                                <div class="verif" id="verif_message"></div>
+                            </div>
+
+                            <div class="envoyer">
+                                <div class="input-field">
+                                    <input type="submit" value="Envoyer">
+                                </div>
+                            </div>
+                        </div>
                         
-                        <input type="submit" value="Envoyer">
                     </div>
                     
                 </form>
