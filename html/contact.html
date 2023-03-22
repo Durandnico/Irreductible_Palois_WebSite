@@ -37,7 +37,7 @@
                     <p>Vous avez une question ? Vous souhaitez nous faire part d'un problème ? N'hésitez pas à nous contacter !</p>
                 </div>
 
-                <form id="form-id">
+                <form id="form-id" action="mailto:jaulingaut@cy-tech.fr" method="get" onsubmit="return form_verif()">
                     
                     <div class="personnal-intel">
                         
@@ -45,7 +45,7 @@
                             <div class="prenom">
                                 <div class="input-field">
                                     <label for="prenom"><span class="label-style">Prénom</span></label>
-                                    <input required='required' type="text" id="prenom" name="prenom" placeholder="Votre prénom.." onfocusout="verif_prenom_nom(this)">
+                                    <input  type="text" id="prenom" name="prenom" placeholder="Votre prénom.." onfocusout="verif_prenom_nom(this)">
                                     <div class="verif">⚠ <span id="verif_prenom">Message d'error prenom</span></div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                             <div class="nom">
                                 <div class="input-field">
                                     <label for="nom"><span class="label-style">Nom</span></label>
-                                    <input required='required' type="text" id="nom" name="nom" placeholder="Votre nom.." onfocusout="verif_prenom_nom(this)">
+                                    <input  type="text" id="nom" name="nom" placeholder="Votre nom.." onfocusout="verif_prenom_nom(this)">
                                     <div class="verif" id="verif_nom">⚠ <span id="verif_nom">Message d'error nom</span></div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                         <div class="mail">
                             <div class="input-field">
                                 <label for="email"><span class="label-style">Email</span></label>
-                                <input required='required' type="text" id="email" name="email" placeholder="Votre email.." onfocusout   ="verif_mail(this)">
+                                <input  type="text" id="email" name="email" placeholder="Votre email.." onfocusout   ="verif_mail(this)">
                                 <div class="verif">⚠ <span id="verif_email">Message d'error mel</span></div>
                             </div>
                         </div>
@@ -75,17 +75,17 @@
                                     
                                     <div class="radio-btn">
                                         <label for="Homme">Homme</label>
-                                        <input required='required' type="radio" name="genre" id="Homme">
+                                        <input  type="radio" name="genre" id="Homme">
                                     </div>
 
                                     <div class="radio-btn">
                                         <label for="Femme">Femme</label>
-                                        <input required='required' type="radio" name="genre" id="Femme">
+                                        <input  type="radio" name="genre" id="Femme">
                                     </div>
 
                                     <div class="radio-btn">
                                         <label for="Dragon">MétéoRémite</label>
-                                        <input required='required' type="radio" name="genre" id="Dragon">
+                                        <input  type="radio" name="genre" id="Dragon">
                                     </div>
                                     
                                 </fieldset>
@@ -109,7 +109,7 @@
                                 <div class="bday">
                                     <div class="input-field">
                                         <label for="birthday"><span class="label-style">Date de naissance</span></label>
-                                        <input required='required' id="bday" min="2002-09-03" type="date" id="birthday" name="birthday" onfocusout="verif_date(this)">
+                                        <input  id="bday" min="2002-09-03" type="date" id="birthday" name="birthday" onfocusout="verif_date(this)">
                                         <div class="verif">⚠ <span id="verif_bday">Message d'erreur bday!</span></div>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                         <div class="subject">
                             <div class="input-field">
                                 <label for="subject"><span class="label-style">Sujet</span></label>
-                                <input required='required' type="text" id="subject" name="subject" placeholder="Sujet..." onfocusout="verif_not_empty(this)">
+                                <input  type="text" id="subject" name="subject" placeholder="Sujet..." onfocusout="verif_not_empty(this)">
                                 <div class="verif">⚠ <span id="verif_subject">Message d'erreur car oublie</span></div>
                             </div>
                         </div>

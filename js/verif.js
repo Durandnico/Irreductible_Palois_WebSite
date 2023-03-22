@@ -22,6 +22,10 @@
  */
 
 
+/* ********************************  Global const  ******************************************** */
+
+const EMPTY_STRING = ""; // Empty string
+
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
 /*!
@@ -98,7 +102,7 @@ function verif_prenom_nom(input)
     var erreur = document.getElementById("verif_" + input.id);
     var regex = new RegExp("^[a-zA-Z]+$");
 
-    if(champ == "")
+    if(champ == EMPTY_STRING)
     {
         erreur.innerHTML = "Veuillez remplir le champ";
         erreur.style.visibility = "visible";
@@ -147,7 +151,7 @@ function verif_gender(gender_input)
     var champ = gender_input.value;
     var erreur = document.getElementById("verif_gender");
 
-    if(champ == "")
+    if(champ == EMPTY_STRING)
     {
         erreur.innerHTML = "Veuillez remplir le champ";
         erreur.style.visibility = "visible";
@@ -178,7 +182,7 @@ function verif_not_empty(input)
     var champ = input.value;
     var erreur = document.getElementById("verif_" + input.id);
 
-    if(champ == "")
+    if(champ == EMPTY_STRING)
     {
         erreur.innerHTML = "Veuillez remplir le champ";
         erreur.style.visibility = "visible";
@@ -244,23 +248,28 @@ function verif_select(select_input)
  */
 function verif_date(date_input)
 {
+    const VALIDE_DATE = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
     let champ = date_input.value;
     let date = champ.split('-');
     let today = new Date();
     let erreur = document.getElementById("verif_" + date_input.id);
     
-    if(champ == "")
+    if(champ == EMPTY_STRING)
     {
         erreur.innerHTML = "Veuillez remplir le champ";
         erreur.style.visibility = "visible";
         return false;
     }
-    else if(champ.match(/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/) == null)
+
+    /* Check if the date is valid */
+    else if(champ.match(VALIDE_DATE) == null)
     {
         erreur.innerHTML = "Veuillez entrer une date valide"  
         erreur.style.visibility = "visible";
         return false;
     }
+
+    /* Check if the date is in the future */
     else if(parseInt(date[0]) > today.getFullYear() || (parseInt(date[0]) == today.getFullYear() && parseInt(date[1]) > (today.getMonth()) + 1) || (parseInt(date[0]) == today.getFullYear() && parseInt(date[1]) == (today.getMonth() + 1) && parseInt(date[2]) > today.getDate()))
     {
         console.log("IN");
@@ -273,4 +282,73 @@ function verif_date(date_input)
         erreur.style.visibility = "hidden";
         return true;
     }
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*!
+ *  \fn function verif_radio(radio_input)
+ *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
+ *  \version 1.0
+ *  \date Wed 22 March 2023 - 15:51:34
+ *  \brief Verify if the radio input is valid (selected)
+ *  \param radio_input:     The radio input
+ *  \return true if the radio input is valid, false otherwise
+ */
+function verif_radio(radio_input)
+{
+    let erreur = document.getElementById("verif_" + radio_input[0].name);
+
+    /* hide the error message */
+    erreur.style.visibility = "hidden";
+
+    /* check if one of the radio input is selected */
+    for(let rad of radio_input)
+        if(rad.checked)
+            return (true);    
+
+    /* if no radio input is selected, display the error message */
+    erreur.innerHTML = "Veuillez selectionner une option";
+    erreur.style.visibility = "visible";
+
+    return (false);
+}
+
+
+
+/*!
+ *  \fn function form_verif(submit_input)
+ *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
+ *  \version 1.0
+ *  \date Wed 22 March 2023 - 15:08:39
+ *  \brief Verify if the form is valid
+ *  \return true if the form is valid, false otherwise
+ */
+function form_verif()
+{
+    /* Get all the input */
+    const prenom = document.getElementById("prenom");
+    const nom = document.getElementById("nom");
+    const bday = document.getElementById("bday");
+    const gender = document.getElementsByName("genre");
+    const job = document.getElementById("job");
+    const email = document.getElementById("email");
+    const subject = document.getElementById("subject");
+    const message = document.getElementById("message");
+
+    /* 
+     *  Verify if all the input are valid
+     *  also call each verif function to display the error message
+     */
+    let verif = true;
+    verif = verif_prenom_nom(prenom) && verif;
+    verif = verif_prenom_nom(nom) && verif;
+    verif = verif_date(bday) && verif;
+    verif = verif_radio(gender) && verif;
+    verif = verif_select(job) && verif;
+    verif = verif_not_empty(email) && verif;
+    verif = verif_not_empty(subject) && verif;
+    verif = verif_not_empty(message) && verif;
+
+    return (verif);
 }

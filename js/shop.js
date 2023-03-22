@@ -200,12 +200,10 @@ function plusmoins(int_value){
  */
 function switch_quantity(classname)
 {
-    if(hid_quant)
+    if(document.getElementsByClassName(classname)[0].style.visibility == "hidden")
         all_quantity_visibility(classname, "visible");
     else
         all_quantity_visibility(classname, "hidden");
-
-    hid_quant = !hid_quant;
 }
 
 
