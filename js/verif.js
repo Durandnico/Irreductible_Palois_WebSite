@@ -16,9 +16,11 @@
  *  \version 1.0
  *  \date Tue 21 March 2023 - 09:26:13
  *
- *  \brief 
+ *  \brief JS file for the verification of the form
  *
- *
+ *  
+ *  \todo
+ *      - Add color to the input if it is not valid (red) / valid (green)
  */
 
 
@@ -39,38 +41,33 @@ const EMPTY_STRING = ""; // Empty string
  *   
  * \details
  *  This function verify if the mail input is valid or not
- *  If the mail is not valid, it display an error message
- *  If the mail is valid, it hide the error message
+ *  If the mail is not valid, it display an error message and return false
+ *  If the mail is valid, it hide the error message and return true
  * 
- * \todo
- * - Add color to the input if it is not valid (red) / valid (green)
- * 
- * \bug
- * - None
 */
 function verif_mail(mail_input)
 {
-    var champ = mail_input.value;
-    var erreur = document.getElementById("verif_email");
+    const VALID_MAIL = /^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/;   // Regex for a valid mail
+    let champ = mail_input.value;                                   // The value of the input
+    let error = document.getElementById("verif_email");             // The error div
     
-    if(champ == "")
-    {
-        erreur.innerHTML = "Veuillez remplir le champ";
-        erreur.style.visibility = "visible";
-        return false;
-    }
     /* Merci Ugo UwU */
-    else if(champ.match(/^[a-z0-9.-]+@[a-z0-9.-]{2,}.[a-z]{2,4}$/) == null)
+    if( (champ.match(VALID_MAIL)) )
     {
-        erreur.innerHTML = "Veuillez entrer un email valide"  
-        erreur.style.visibility = "visible";
-        return false;
-    }
-    else
-    {
-        erreur.style.visibility = "hidden";
+        error.style.visibility = "hidden";
         return true;
     }
+
+    /* If invalid mail */
+    if(champ == EMPTY_STRING){
+        error.innerHTML = "Veuillez remplir le champ";
+    }
+    else{
+        error.innerHTML = "Veuillez entrer un email valide"  
+    }
+
+    error.style.visibility = "visible";
+    return false;
 }
 
 
@@ -87,82 +84,36 @@ function verif_mail(mail_input)
  *  
  * \details
  * This function verify if the input is a valid name (only letters)
- * If the input is not valid, it display an error message
- * If the input is valid, it hide the error message
+ * If the input is not valid, it display an error message and return false
+ * If the input is valid, it hide the error message and return true
  * 
  * \todo
  *  - Add color to the input if it is not valid (red) / valid (green)
  * 
- * \bug
- * - None
  */
 function verif_prenom_nom(input)
 {
-    var champ = input.value;
-    var erreur = document.getElementById("verif_" + input.id);
-    var regex = new RegExp("^[a-zA-Z]+$");
+    let champ = input.value;                                    // The value of the input
+    let error = document.getElementById("verif_" + input.id);   // The error div
+    const VALID_NAME = /^[a-zA-Z]+$/;                           // Regex for a valid name
 
-    if(champ == EMPTY_STRING)
+    
+    if(champ.match(VALID_NAME))
     {
-        erreur.innerHTML = "Veuillez remplir le champ";
-        erreur.style.visibility = "visible";
-        return false;
-    }
-    else if(!regex.test(champ))
-    {
-        erreur.innerHTML = "Veuillez entrer un nom valide"  
-        erreur.style.visibility = "visible";
-        return false;
-    }
-    else
-    {
-        erreur.style.visibility = "hidden";
+        error.style.visibility = "hidden";
         return true;
     }   
-}
-
-
-/*-------------------------------------------------------------------------------------------------------------------------------*/
-
-/* Disclaimer : useless */
-
-/*!
- *  \fn function verif_gender(gender_input)
- *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
- *  \version 1.0
- *  \date Wed 22 March 2023 - 08:27:38
- *  \brief Verify if the gender input is valid (selected)
- *  \param gender_input:    The gender input
- *  \return true if the gender is valid (selected), false otherwise
- * 
- *  \details
- *  This function verify if the gender input is valid (selected)
- *  If the gender is not valid, it display an error message
- *  If the gender is valid, it hide the error message
- * 
- *  \todo
- *  - Add color to the input if it is not valid (red) / valid (green)
- * 
- *  \bug
- *  - None
- */
-function verif_gender(gender_input)
-{
-    var champ = gender_input.value;
-    var erreur = document.getElementById("verif_gender");
-
-    if(champ == EMPTY_STRING)
-    {
-        erreur.innerHTML = "Veuillez remplir le champ";
-        erreur.style.visibility = "visible";
-        return false;
-    }
-    else
-    {
-        erreur.style.visibility = "hidden";
-        return true;
-    }
     
+    /* If invalid name */
+    if(champ == EMPTY_STRING){
+        error.innerHTML = "Veuillez remplir le champ";
+    }
+    else{
+        error.innerHTML = "Veuillez entrer un " + input.id + " valide"  
+    }
+
+    error.style.visibility = "visible";
+    return false;
 }
 
 
@@ -176,23 +127,28 @@ function verif_gender(gender_input)
  *  \brief Verify if the input is not empty
  *  \param input:   The input to verify
  *  \return true if the input is not empty, false otherwise
+ * 
+ *  \details
+ *  This function verify if the input is not empty
+ *  If the input is empty, it display an error message and return false
+ *  If the input is not empty, it hide the error message and return true
  */
 function verif_not_empty(input)
 {
-    var champ = input.value;
-    var erreur = document.getElementById("verif_" + input.id);
+    let champ = input.value;
+    let error = document.getElementById("verif_" + input.id);
 
+    /* If empty */
     if(champ == EMPTY_STRING)
     {
-        erreur.innerHTML = "Veuillez remplir le champ";
-        erreur.style.visibility = "visible";
+        error.innerHTML = "Veuillez remplir le champ";
+        error.style.visibility = "visible";
         return false;
     }
-    else
-    {
-        erreur.style.visibility = "hidden";
-        return true;
-    }   
+
+    error.style.visibility = "hidden";
+    return true;
+       
 }
 
 
@@ -206,23 +162,28 @@ function verif_not_empty(input)
  *  \brief Verify if the select input is valid (selected and not the first option)
  *  \param select_input:    The select input
  *  \return true if the select input is valid, false otherwise
+ * 
+ *  \details
+ *  This function verify if the select input is valid (selected and not the first option)
+ *  If the select input is not valid, it display an error message and return false
+ *  If the select input is valid, it hide the error message and return true
+ * 
  */
 function verif_select(select_input)
 {
-    var champ = select_input.value;
-    var erreur = document.getElementById("verif_" + select_input.id);
+    const EXEMPLE_OPTION = select_input.children[0].value;
+    let champ = select_input.value;
+    let error = document.getElementById("verif_" + select_input.id);
 
-    if(champ == select_input.children[0].value)
+    if(champ == EXEMPLE_OPTION)
     {
-        erreur.innerHTML = "Veuillez selectionner une option";
-        erreur.style.visibility = "visible";
+        error.innerHTML = "Veuillez selectionner une option";
+        error.style.visibility = "visible";
         return false;
     }
-    else
-    {
-        erreur.style.visibility = "hidden";
-        return true;
-    }   
+    
+    error.style.visibility = "hidden";
+    return true;   
 }
 
 
@@ -240,48 +201,46 @@ function verif_select(select_input)
  * 
  *  \details
  *  This function verify if the date input is valid
- *  If the date input is not valid, it display an error message
- *  If the date input is valid, it hide the error message
+ *  If the date input is not valid, it display an error message and return false
+ *  If the date input is valid, it hide the error message and return true
  * 
- *  \todo
- *  - Add color to the input if it is not valid (red) / valid (green)
  */
 function verif_date(date_input)
 {
-    const VALIDE_DATE = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;
-    let champ = date_input.value;
-    let date = champ.split('-');
-    let today = new Date();
-    let erreur = document.getElementById("verif_" + date_input.id);
+    const VALID_DATE = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/;              // Regex for a valid date
+    let champ = date_input.value;                                   // The value of the input
+    let date = champ.split('-');                                    // The date split in an array (year, month, day)
+    let today = new Date();                                         // Today's date              
+    let error = document.getElementById("verif_" + date_input.id);  // The error div
     
+    /* If empty */
     if(champ == EMPTY_STRING)
     {
-        erreur.innerHTML = "Veuillez remplir le champ";
-        erreur.style.visibility = "visible";
+        error.innerHTML = "Veuillez remplir le champ";
+        error.style.visibility = "visible";
         return false;
     }
 
     /* Check if the date is valid */
-    else if(champ.match(VALIDE_DATE) == null)
+    if( ! champ.match(VALID_DATE) )
     {
-        erreur.innerHTML = "Veuillez entrer une date valide"  
-        erreur.style.visibility = "visible";
+        error.innerHTML = "Veuillez entrer une date valide"  
+        error.style.visibility = "visible";
         return false;
     }
 
     /* Check if the date is in the future */
-    else if(parseInt(date[0]) > today.getFullYear() || (parseInt(date[0]) == today.getFullYear() && parseInt(date[1]) > (today.getMonth()) + 1) || (parseInt(date[0]) == today.getFullYear() && parseInt(date[1]) == (today.getMonth() + 1) && parseInt(date[2]) > today.getDate()))
+    if(parseInt(date[0]) > today.getFullYear() || (parseInt(date[0]) == today.getFullYear() && parseInt(date[1]) > (today.getMonth()) + 1) || (parseInt(date[0]) == today.getFullYear() && parseInt(date[1]) == (today.getMonth() + 1) && parseInt(date[2]) > today.getDate()))
     {
-        console.log("IN");
-        erreur.innerHTML = "Vous ne pouvez pas être né dans le futur"
-        erreur.style.visibility = "visible";
+        error.innerHTML = "Vous ne pouvez pas être né dans le futur"
+        error.style.visibility = "visible";
         return false;
     }
-    else
-    {
-        erreur.style.visibility = "hidden";
-        return true;
-    }
+
+    /* If valid date */
+    error.style.visibility = "hidden";
+    return true;
+    
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
@@ -294,13 +253,19 @@ function verif_date(date_input)
  *  \brief Verify if the radio input is valid (selected)
  *  \param radio_input:     The radio input
  *  \return true if the radio input is valid, false otherwise
+ * 
+ *  \details
+ *  This function verify if the radio input is valid (selected)
+ *  If all the radio input are not selected, it display an error message and return false
+ *  If at least one radio input is selected, it hide the error message and return true
+ * 
  */
 function verif_radio(radio_input)
 {
-    let erreur = document.getElementById("verif_" + radio_input[0].name);
+    let error = document.getElementById("verif_" + radio_input[0].name); // The error div
 
     /* hide the error message */
-    erreur.style.visibility = "hidden";
+    error.style.visibility = "hidden";
 
     /* check if one of the radio input is selected */
     for(let rad of radio_input)
@@ -308,13 +273,14 @@ function verif_radio(radio_input)
             return (true);    
 
     /* if no radio input is selected, display the error message */
-    erreur.innerHTML = "Veuillez selectionner une option";
-    erreur.style.visibility = "visible";
+    error.innerHTML = "Veuillez selectionner une option";
+    error.style.visibility = "visible";
 
     return (false);
 }
 
 
+/*-------------------------------------------------------------------------------------------------------------------------------*/
 
 /*!
  *  \fn function form_verif(submit_input)
@@ -323,6 +289,13 @@ function verif_radio(radio_input)
  *  \date Wed 22 March 2023 - 15:08:39
  *  \brief Verify if the form is valid
  *  \return true if the form is valid, false otherwise
+ *  
+ *  \details
+ *  This function verify if the form is valid
+ *  Call each verif function to verify if the input are valid
+ *  If the form is valid, send the form
+ *  If the form is not valid, display the error message where it is needed and do not send the form
+ * 
  */
 function form_verif()
 {
