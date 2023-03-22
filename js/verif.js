@@ -282,6 +282,25 @@ function verif_radio(radio_input)
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
+
+/*!
+ *  \fn function hide_error(input)
+ *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>
+ *  \version 1.0
+ *  \date Wed 22 March 2023 - 21:20:29
+ *  \brief Hide the error message of the input
+ *  \param input:   The input
+ */
+function hide_error(input)
+{
+    let error = document.getElementById("verif_" + input.name);
+    error.style.visibility = "hidden";
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
 /*!
  *  \fn function form_verif(submit_input)
  *  \author DURAND Nicolas Erich Pierre <nicolas.durand@cy-tech.fr>

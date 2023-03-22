@@ -315,6 +315,11 @@ td{
     object-fit: contain;
 }
 
+#fit{
+    object-fit: cover;
+}
+
+
 .q_max{
     visibility: hidden;
 }
