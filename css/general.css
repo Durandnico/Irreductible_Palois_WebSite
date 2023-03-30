@@ -1,3 +1,11 @@
+/*
+ * -------------------------------------------------------------------------------------
+ *
+ * all general stuff that repeat in all pages 
+ *
+ * -------------------------------------------------------------------------------------
+ */
+
 * {
     margin: 0;
     padding: 0;
@@ -87,4 +95,132 @@ body{
 
 .switch input:checked + span:before {
 	left: 34px;
+}
+
+
+/*
+ * -------------------------------------------------------------------------------------
+ *
+ * header css 
+ *
+ * -------------------------------------------------------------------------------------
+ */
+
+
+header {
+    line-height: 19.2px;
+    position: fixed;
+    width: 100%;
+    height: 6rem;
+    background-color: white;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+
+#main_logo {
+    width: auto;
+    object-fit: cover;
+    height: 120px;
+    margin-left: 10%;
+    margin-top: 8px;
+}
+
+.logoo {
+    align-items: center;
+    background-color: blue;
+}
+
+
+.menu {
+    width: 44%;
+    display: flex;
+    padding-top: 50px;
+    list-style: none;
+    margin: 0 auto;
+    margin-right: 2%;
+}
+
+.menu li {
+    margin-left: 40px;
+    margin-right: 20px;
+    padding-bottom: 50px;
+}
+
+.menu li a {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Libre Baskerville";
+    text-decoration: none;
+    color: rgb(13, 16, 17);
+}
+
+.menu li a:hover:not(.active) {
+    color: #0693e3;
+}
+
+.menu-sign{
+    margin-right: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 42px;
+    list-style: none;
+}
+
+.menu-sign li a {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Libre Baskerville";
+    text-decoration: none;
+    color: rgb(13, 16, 17);
+}
+
+.menu-sign li a:hover:not(.active) {
+    color: #0693e3;
+}
+
+/*
+ * -------------------------------------------------------------------------------------
+ *
+ * footer css 
+ *
+ * -------------------------------------------------------------------------------------
+ */
+
+footer { 
+    bottom: 0;
+    position: absolute;
+    width: 100vw;
+    padding-bottom: 40px;
+    overflow: hidden;
+    display: flex;
+    background-color: #0693e3;
+}
+
+.legacy {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(5, 51, 91);
+}
+
+.legacy p{
+    color: white;
+    margin: 0 auto; 
+    font-size: 12px;
+    font-weight: 600;
+    font-family: "Libre Baskerville";
+    text-decoration: none;
 }
