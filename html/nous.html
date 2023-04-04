@@ -3,28 +3,12 @@
         <title>Les irréductibles Palois</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/header.css">
         <link rel="stylesheet" href="../css/contact.css">
-        <link rel="stylesheet" href="../css/footer.css">
     </head>
 
-    <header>
-        <img id="main_logo" src="../img/logo.png" onclick="location.href='../index.html';" alt="logo" />
-
-        <ul class="menu">
-            <li><a href="nous.html">Nous</a></li>
-            <li><a href="boutique.html">Boutique</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="candidature.html">Candidature</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-        <ul class="menu-sign">
-            <li><a href="connexion.html">Connexion</a></li>
-            <li><a href="inscription.html">Inscription</a></li>
-        </ul>
-
-    </header>
+    <?php
+        include '../inc/header.php';
+    ?>
 
     <body>
         <div class="my_padding_top"></div>
@@ -34,10 +18,7 @@
         <div class="my_padding_bot"></div>
     </body>
 
-    <footer>
-        <div class="legacy">
-            <p>© 2023 Les irréductibles Palois | Un site de l'école <a style="color: rgb(34, 108, 181)" href="https://cytech.cyu.fr/cy-tech-pau">CY-Tech (ex : EISTI)</a></p>
-            <p>Créé par Durand Nicolas</p>
-        </div>
-    </footer>
+    <?php
+        include '../inc/footer.php';
+    ?>
 </html>
