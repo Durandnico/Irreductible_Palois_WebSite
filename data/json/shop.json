@@ -1,0 +1,129 @@
+{
+    "goodies": [
+        {
+            "name": "Casque polonais (légérement abimé)",
+            "image": "../img/casquePolonais.png",
+            "short-description": "Outil parfait pour initiation de famille",
+            "full-description": "Ce casque est le légendaire casque de Sylvain, utilisé de génération en génération pour l'initation de famille il porte encore les marques des passages précédents.",
+            "price": 69,
+            "quantity": 1
+        },
+        {
+            "name": "Table de beerpong ! (sans tréteau)",
+            "image": "../img/logo.png",
+            "short-description": "Table de beerpong",
+            "full-description": "A compléter avec un tréteau",
+            "price": 420,
+            "quantity": 1
+        },
+        {
+            "name": "NFT du logo irréductible",
+            "image": "../img/NFC2.jpg",
+            "short-description": "Le seul NFT du logo IR",
+            "full-description": "..",
+            "price": 1138,
+            "quantity": 1
+        },
+        {
+            "name": "Litron du VB",
+            "image": "../img/Litron.webp",
+            "short-description": "La seule vrai taille de bière",
+            "full-description": "...",
+            "price": 21.89,
+            "quantity": 15
+        },
+        {
+            "name": "Cigare",
+            "image": "../img/cigare.jpg",
+            "short-description": "Cigare préféré de Nico",
+            "full-description": "...",
+            "price": 12,
+            "quantity": 500
+        },
+        {
+            "name": "Bob Cochonou",
+            "image": "../img/bob.png",
+            "short-description": "L'apogée du style",
+            "full-description": "...",
+            "price": 19.99,
+            "quantity": 12
+        }
+    ],
+    "alcool": [
+        {
+            "name": "Captain Morgan",
+            "image": "../img/captain.png",
+            "short-description": "Le rhum préféré de Cy-Tech",
+            "full-description": "...",
+            "price": 21.89,
+            "quantity": 150
+        },
+        {
+            "name": "Poliakov",
+            "image": "../img/poliakov.png",
+            "short-description": "Simple et classique pour t'exploser le crane",
+            "full-description": "...",
+            "price": 14,
+            "quantity": 200
+        },
+        {
+            "name": "Ballantine's",
+            "image": "../img/ballantines.webp",
+            "short-description": "Pour les parties de pauker !",
+            "full-description": "...",
+            "price": 19,
+            "quantity": 30
+        },  
+        {
+            "name": "Ricard",
+            "image": "../img/ricard.webp",
+            "short-description": "Midi et quart, heure du Ricard",
+            "full-description": "...",
+            "price": 15,
+            "quantity": 65
+        },
+        {
+            "name": "Jägermeister",
+            "image": "../img/jager.webp",
+            "short-description": "A base de plante, comme un tête de chanvre",
+            "full-description": "...",
+            "price": 22,
+            "quantity": 300
+        },
+        {
+            "name": "Baileys",
+            "image": "../img/Baileys.png",
+            "short-description": "Pour remplacer le café",
+            "full-description": "...",
+            "price": 12,
+            "quantity": 15
+        },
+        {
+            "name": "Maydie",
+            "image": "../img/Maydie.png",
+            "short-description": "Vin rouge sucré et fruité",
+            "full-description": "...",
+            "price": 15,
+            "quantity": 5
+        }
+    ],
+    "Random": [
+        
+    ],
+    "Header": {
+        "goodies": {
+            "titre": "Les goodies",
+            "ss-titre": "Soyez-unique avec vos goodies des irréductible",
+            "quantity": "q_max_goodies"
+        },
+        "alcool": {
+            "titre": "Les alcools",
+            "ss-titre": "Pour ne pas venir aux soirées les mains vides ;)"
+        },
+        "Random": {
+            "titre": "Les aléatoires",
+            "ss-titre": "Random stuff<p>PS : c'est les copains et ils sont d'accord</p>"
+        }
+    }
+    
+}
