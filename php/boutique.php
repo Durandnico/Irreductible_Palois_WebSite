@@ -18,13 +18,12 @@
         <link rel="stylesheet" href="/css/general.css">
         <link rel="stylesheet" href="/css/shop.css">
     </head>
-    <div class="header_filter">
-
+    <div class="header_filter"> </div>
+        
         <?php
         require '../inc/header.html';
         ?>
 
-    </div>
 
     <body>
 
@@ -65,7 +64,7 @@
                     <h1><?php echo $_SESSION['shop_data']['Header'][$cat]['titre'] ?></h1>
                     <p><?php echo $_SESSION['shop_data']['Header'][$cat]['ss-titre'] ?></p>
                     <label style="position: absolute; top:15; right:15;" class="switch">
-                        <input onclick="switch_quantity('<?php echo $_SESSION['shop_data']['header'][$cat]['quantity'] ?>');" type="checkbox" />
+                        <input onclick="switch_quantity('<?php echo $_SESSION['shop_data']['Header'][$cat]['quantity'] ?>');" type="checkbox" />
                         <span></span>
                     </label>
                     <span style="position: absolute; bottom: 5; right: 12;">Quantité</span>
@@ -75,24 +74,24 @@
                     <table>
                         <tbody>
                             <?php
-                                $i = 0;
+                                $i=0;
                                 foreach ($data as $key => $value) {
-                                    if($i % 4 == 0) echo '<tr>';
+                                    if($i % 4 == 0) {echo '<tr>';}
                                     echo '<td>';
-                                    echo '<div class="product">';
-                                    echo '<div class="product-image">';
-                                    echo '<img src="'.$value['img'].'" alt="'.$value['alt'].'" />';
-                                    echo '</div>';
-                                    echo '<div class="content">';
-                                    echo '<h4>'.$value['name'].'</h4>';
-                                    echo '<h5>'.$value['price'].'€</h5>';
-                                    echo '<h3>'.$value['description'].'</h3>';
-                                    echo '<span class="'.$_SESSION['shop_data']['Header'][$cat]['quantity'].'">'.$value['quantity'].'</span>';
-                                    echo '<button onclick="zoom_product(this)"><div class="my_filter"><p>Acheter</p></div></button>';
-                                    echo '</div>';
-                                    echo '</div>';
+                                    echo '  <div class="product">';
+                                    echo '      <div class="product-img">';
+                                    echo '          <img src="'.$value['image'].'" alt="'.$value['alt'].'" />';
+                                    echo '      </div>';
+                                    echo '      <div class="content">';
+                                    echo '          <h4>'.$value['name'].'</h4>';
+                                    echo '          <h5>'.$value['price'].'€</h5>';
+                                    echo '          <h3>'.$value['short-description'].'</h3>';
+                                    echo '          <span class="'.$_SESSION['shop_data']['Header'][$cat]['quantity'].'" style="visibility:hidden;">Quantité max : '.$value['quantity'].'</span>';
+                                    echo '          <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>';
+                                    echo '      </div>';
+                                    echo '  </div>';
                                     echo '</td>';
-                                    if($i % 4 == 0) echo '</tr>';
+                                    if($i % 4 == 3) {echo '</tr>';}
                                     $i++;
                                 }
                             ?>

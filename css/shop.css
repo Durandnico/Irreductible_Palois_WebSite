@@ -1,6 +1,6 @@
 .header_filter{
     top: 0;
-    position: absolute;
+    position: fixed ;
     height: 6rem;
     width: 100%;
     background-color: rgba(0,0,0,0.5);
