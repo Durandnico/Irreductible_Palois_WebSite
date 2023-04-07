@@ -2,8 +2,8 @@
     <head>
         <title>Les irréductibles Palois</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="./css/general.css">
-        <link rel="stylesheet" href="./css/index.css" >
+        <link rel="stylesheet" href="/css/general.css">
+        <link rel="stylesheet" href="/css/index.css" >
     </head>
     
     <?php
@@ -14,7 +14,7 @@
     <body>
           
             <div class="banner">
-                <img src="./img/banner.JPG" alt="banner"> 
+                <img src="/img/banner.JPG" alt="banner"> 
             </div>
 
 
@@ -30,7 +30,7 @@
 
             <div class="menu-image">
 
-                <a href="html/nous.html" >
+                <a href="/html/nous.php" >
                     <div class="petite-image-menu" id=i1>
                         <div class="filter-petite-image-menu">
                             <div class="text-petite-image-menu">
@@ -44,7 +44,7 @@
                     </div>
                 </a>
 
-                <a href="html/boutique.html" >
+                <a href="/html/boutique.php" >
                     <div class="petite-image-menu" id=i2 style="background-color:rgb(34, 108, 181)">
                         <div class="filter-petite-image-menu">
                             <div class="text-petite-image-menu">
@@ -57,7 +57,7 @@
                     </div>
                 </a>
 
-                <a href="html/galerie.html" >
+                <a href="/html/galerie.php" >
                     <div class="petite-image-menu" id=i3 style="background-color: yellow;">
                         <div class="filter-petite-image-menu">
                             <div class="text-petite-image-menu">
@@ -71,7 +71,7 @@
                 </a>
 
 
-                <a href="html/candidature.htlm" >
+                <a href="/html/candidature.php" >
                     <div class="petite-image-menu" id=i4 style="background-color: green;">
                         
                         <div class="filter-petite-image-menu">

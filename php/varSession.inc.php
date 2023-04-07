@@ -6,7 +6,6 @@
         $json = file_get_contents('data/json/shop.json');
         $data = json_decode($json, true);
         $_SESSION['shop_data'] = $data;
-        var_dump($_SESSION);
     }
      
 ?>

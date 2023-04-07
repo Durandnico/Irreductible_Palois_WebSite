@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
     <head>
         <title>Les irréductibles Palois</title>
@@ -7,12 +11,11 @@
     </head>
 
     <?php
-        include '../inc/header.php';
+        require '../inc/header.html';
     ?>
 
     <body>
         
-        <div class="my_padding_top"></div>
 
         <div class="main-presentation">
             <div class="contact_us">
@@ -133,11 +136,10 @@
             </div>
         </div>
 
-        <div class="my_padding_bot"></div>
     </body>
 
     <?php
-        include '../inc/footer.php';
+        include '../inc/footer.html';
     ?>
 
     <script src="../js/verif.js"></script>

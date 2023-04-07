@@ -108,7 +108,7 @@ function switch_background_filter()
         big_filter.style.filter = "brightness(100%)";
 
         /* unset the header filter */
-        header_filter.style.zIndex = "0";
+        header_filter.style.hidden = "hidden";
     } else {
         /* set the boyd filter */
         big_filter.style.backgroundColor = "rgba(0,0,0,0.5)";

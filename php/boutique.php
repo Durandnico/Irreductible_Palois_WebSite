@@ -15,13 +15,15 @@
     <head>
         <title>Les irréductibles Palois</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="../css/general.css">
-        <link rel="stylesheet" href="../css/shop.css">
+        <link rel="stylesheet" href="/css/general.css">
+        <link rel="stylesheet" href="/css/shop.css">
     </head>
     <div class="header_filter">
+
         <?php
         require '../inc/header.html';
         ?>
+
     </div>
 
     <body>
@@ -104,4 +106,8 @@
     require '../inc/footer.html';
 ?>
     </body>
+
+
+    <!-- JS -->
+    <script src="../js/shop.js"></script>
 </html>
