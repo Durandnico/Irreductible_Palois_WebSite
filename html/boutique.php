@@ -109,7 +109,7 @@
                                         </div>
 
                                         <div class="content">
-                                            <h4>NFC du logo irréductible</h4>
+                                            <h4>NFT du logo irréductible</h4>
                                             <h5>Le seul NFT des IR</h5>
                                             <h3>1138€</h3>
                                             <span class="q_max_goodies" style="visibility:hidden;">quantité max : <span>1</span></span>
