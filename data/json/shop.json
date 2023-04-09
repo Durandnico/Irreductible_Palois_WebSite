@@ -1,199 +1,206 @@
 {
-    "goodies": [
-        {
-            "name": "Casque polonais (légérement abimé)",
-            "image": "/img/casquePolonais.png",
-            "alt": "casquePolonais",
-            "short-description": "Outil parfait pour initiation de famille",
-            "full-description": "Ce casque est le légendaire casque de Sylvain, utilisé de génération en génération pour l'initation de famille il porte encore les marques des passages précédents.",
-            "price": 69,
-            "quantity": 1
-        },
-        {
-            "name": "Table de beerpong ! (sans tréteau)",
-            "image": "/img/logo.png",
-            "alt": "Table de beerpong",
-            "short-description": "Table de beerpong",
-            "full-description": "A compléter avec un tréteau",
-            "price": 420,
-            "quantity": 1
-        },
-        {
-            "name": "NFT du logo irréductible",
-            "image": "/img/NFC2.jpg",
-            "alt": "NFT",
-            "short-description": "Le seul NFT du logo IR",
-            "full-description": "..",
-            "price": 1138,
-            "quantity": 1
-        },
-        {
-            "name": "Litron du VB",
-            "image": "/img/Litron.webp",
-            "alt": "Litron",
-            "short-description": "La seule vrai taille de bière",
-            "full-description": "...",
-            "price": 21.89,
-            "quantity": 15
-        },
-        {
-            "name": "Cigare",
-            "image": "/img/cigare.jpg",
-            "alt": "Ciagre",
-            "short-description": "Cigare préféré de Nico",
-            "full-description": "...",
-            "price": 12,
-            "quantity": 500
-        },
-        {
-            "name": "Bob Cochonou",
-            "image": "/img/bob.png",
-            "alt": "Bob cochonou",
-            "short-description": "L'apogée du style",
-            "full-description": "...",
-            "price": 19.99,
-            "quantity": 12
-        }
-    ],
-    "alcool": [
-        {
-            "name": "Captain Morgan",
-            "image": "/img/captain.png",
-            "alt": "Captain Morgan",
-            "short-description": "Le rhum préféré de Cy-Tech",
-            "full-description": "...",
-            "price": 21.89,
-            "quantity": 150
-        },
-        {
-            "name": "Poliakov",
-            "image": "/img/Poliakov.png",
-            "alt": "Poliakov",
-            "short-description": "Simple et classique pour t'exploser le crane",
-            "full-description": "...",
-            "price": 14,
-            "quantity": 200
-        },
-        {
-            "name": "Ballantine's",
-            "image": "/img/ballantines.webp",
-            "alt": "Ballantines",
-            "short-description": "Pour les parties de pauker !",
-            "full-description": "...",
-            "price": 19,
-            "quantity": 30
-        },  
-        {
-            "name": "Ricard",
-            "image": "/img/ricard.webp",
-            "alt": "Ricard",
-            "short-description": "Midi et quart, heure du Ricard",
-            "full-description": "...",
-            "price": 15,
-            "quantity": 65
-        },
-        {
-            "name": "Jägermeister",
-            "image": "/img/jager.webp",
-            "alt": "Jägermeister",
-            "short-description": "A base de plante, comme un tête de chanvre",
-            "full-description": "...",
-            "price": 22,
-            "quantity": 300
-        },
-        {
-            "name": "Baileys",
-            "image": "/img/Baileys.png",
-            "alt": "Baileys",
-            "short-description": "Pour remplacer le café",
-            "full-description": "...",
-            "price": 12,
-            "quantity": 15
-        },
-        {
-            "name": "Maydie",
-            "image": "/img/Maydie.png",
-            "alt": "Maydie",
-            "short-description": "Vin rouge sucré et fruité",
-            "full-description": "...",
-            "price": 15,
-            "quantity": 5
-        }
-    ],
-    "Random": [
-        {
-            "name": "NH-90 Bi-turbines",
-            "image": "/img/Ugo.jpg",
-            "alt": "NH-90",
-            "short-description": "Le meilleur des hélicoptères",
-            "full-description": "...",
-            "price": "69 420",
-            "quantity": 1
-        },
-        {
-            "name": "Mois d'abonnement Dofus",
-            "image": "/img/Leop.jpg",
-            "alt": "Dofus",
-            "short-description": "Pour le meilleur gaming possible",
-            "full-description": "...",
-            "price": 5,
-            "quantity": 999
-        },
-        {
-            "name": "Distributeur de smarties",
-            "image": "/img/Remi.jpg",
-            "alt": "Smarties",
-            "short-description": "Au cas ou il y a une petite faim",
-            "full-description": "...",
-            "price": 0.50,
-            "quantity": 1
-        },
-        {
-            "name": "Jouet pour enfant",
-            "image": "/img/Jesus.jpg",
-            "alt": "Jouet",
-            "short-description": "Un anniversaire réussi",
-            "full-description": "...",
-            "price": 50,
-            "quantity": 50
-        },
-        {
-            "name": "Carte graphique",
-            "image": "/img/Ransan.jpg",
-            "alt": "Carte graphique",
-            "short-description": "Bat Nvidia et AMD",
-            "full-description": "...",
-            "price": "1 000 000",
-            "quantity": 5
-        },
-        {
-            "name": "Grille pain",
-            "image": "/img/Naiwann.jpg",
-            "alt": "Grille pain",
-            "short-description": "Il te grille comme personne",
-            "full-description": "...",
-            "price": 3773,
-            "quantity": 9
-        },
-        {
-            "name": "Couteau de cuisine",
-            "image": "/img/Mael.jpg",
-            "alt": "Couteau de cuisine",
-            "short-description": "Cut cut",
-            "full-description": "...",
-            "price": 4,
-            "quantity": 61
-        },
-        {
-            "name": "Balais à chiotte",
-            "image": "/img/Goat.jpg",
-            "alt": "Balais à chiotte",
-            "short-description": "Spouik spouik",
-            "full-description": "...",
-            "price": 6.90,
-            "quantity": 7
-        }
-    ],
+    "shop" : {
+
+        "goodies": [
+            {
+                "name": "Casque polonais (légérement abimé)",
+                "image": "/img/casquePolonais.png",
+                "alt": "casquePolonais",
+                "short-description": "Outil parfait pour initiation de famille",
+                "full-description": "Ce casque est le légendaire casque de Sylvain, utilisé de génération en génération pour l'initation de famille il porte encore les marques des passages précédents.",
+                "price": 69,
+                "quantity": 1
+            },
+            {
+                "name": "Table de beerpong ! (sans tréteau)",
+                "image": "/img/logo.png",
+                "alt": "Table de beerpong",
+                "short-description": "Table de beerpong",
+                "full-description": "A compléter avec un tréteau",
+                "price": 420,
+                "quantity": 1
+            },
+            {
+                "name": "NFT du logo irréductible",
+                "image": "/img/NFC2.jpg",
+                "alt": "NFT",
+                "short-description": "Le seul NFT du logo IR",
+                "full-description": "..",
+                "price": 1138,
+                "quantity": 1
+            },
+            {
+                "name": "Litron du VB",
+                "image": "/img/Litron.webp",
+                "alt": "Litron",
+                "short-description": "La seule vrai taille de bière",
+                "full-description": "...",
+                "price": 21.89,
+                "quantity": 15
+            },
+            {
+                "name": "Cigare",
+                "image": "/img/cigare.jpg",
+                "alt": "Ciagre",
+                "short-description": "Cigare préféré de Nico",
+                "full-description": "...",
+                "price": 12,
+                "quantity": 500
+            },
+            {
+                "name": "Bob Cochonou",
+                "image": "/img/bob.png",
+                "alt": "Bob cochonou",
+                "short-description": "L'apogée du style",
+                "full-description": "...",
+                "price": 19.99,
+                "quantity": 12
+            }
+        ],
+
+
+        "alcool": [
+            {
+                "name": "Captain Morgan",
+                "image": "/img/captain.png",
+                "alt": "Captain Morgan",
+                "short-description": "Le rhum préféré de Cy-Tech",
+                "full-description": "...",
+                "price": 21.89,
+                "quantity": 150
+            },
+            {
+                "name": "Poliakov",
+                "image": "/img/Poliakov.png",
+                "alt": "Poliakov",
+                "short-description": "Simple et classique pour t'exploser le crane",
+                "full-description": "...",
+                "price": 14,
+                "quantity": 200
+            },
+            {
+                "name": "Ballantine's",
+                "image": "/img/ballantines.webp",
+                "alt": "Ballantines",
+                "short-description": "Pour les parties de pauker !",
+                "full-description": "...",
+                "price": 19,
+                "quantity": 30
+            },  
+            {
+                "name": "Ricard",
+                "image": "/img/ricard.webp",
+                "alt": "Ricard",
+                "short-description": "Midi et quart, heure du Ricard",
+                "full-description": "...",
+                "price": 15,
+                "quantity": 65
+            },
+            {
+                "name": "Jägermeister",
+                "image": "/img/jager.webp",
+                "alt": "Jägermeister",
+                "short-description": "A base de plante, comme un tête de chanvre",
+                "full-description": "...",
+                "price": 22,
+                "quantity": 300
+            },
+            {
+                "name": "Baileys",
+                "image": "/img/Baileys.png",
+                "alt": "Baileys",
+                "short-description": "Pour remplacer le café",
+                "full-description": "...",
+                "price": 12,
+                "quantity": 15
+            },
+            {
+                "name": "Maydie",
+                "image": "/img/Maydie.png",
+                "alt": "Maydie",
+                "short-description": "Vin rouge sucré et fruité",
+                "full-description": "...",
+                "price": 15,
+                "quantity": 5
+            }
+        ],
+
+        
+        "Random": [
+            {
+                "name": "NH-90 Bi-turbines",
+                "image": "/img/Ugo.jpg",
+                "alt": "NH-90",
+                "short-description": "Le meilleur des hélicoptères",
+                "full-description": "...",
+                "price": "69 420",
+                "quantity": 1
+            },
+            {
+                "name": "Mois d'abonnement Dofus",
+                "image": "/img/Leop.jpg",
+                "alt": "Dofus",
+                "short-description": "Pour le meilleur gaming possible",
+                "full-description": "...",
+                "price": 5,
+                "quantity": 999
+            },
+            {
+                "name": "Distributeur de smarties",
+                "image": "/img/Remi.jpg",
+                "alt": "Smarties",
+                "short-description": "Au cas ou il y a une petite faim",
+                "full-description": "...",
+                "price": 0.50,
+                "quantity": 1
+            },
+            {
+                "name": "Jouet pour enfant",
+                "image": "/img/Jesus.jpg",
+                "alt": "Jouet",
+                "short-description": "Un anniversaire réussi",
+                "full-description": "...",
+                "price": 50,
+                "quantity": 50
+            },
+            {
+                "name": "Carte graphique",
+                "image": "/img/Ransan.jpg",
+                "alt": "Carte graphique",
+                "short-description": "Bat Nvidia et AMD",
+                "full-description": "...",
+                "price": "1 000 000",
+                "quantity": 5
+            },
+            {
+                "name": "Grille pain",
+                "image": "/img/Naiwann.jpg",
+                "alt": "Grille pain",
+                "short-description": "Il te grille comme personne",
+                "full-description": "...",
+                "price": 3773,
+                "quantity": 9
+            },
+            {
+                "name": "Couteau de cuisine",
+                "image": "/img/Mael.jpg",
+                "alt": "Couteau de cuisine",
+                "short-description": "Cut cut",
+                "full-description": "...",
+                "price": 4,
+                "quantity": 61
+            },
+            {
+                "name": "Balais à chiotte",
+                "image": "/img/Goat.jpg",
+                "alt": "Balais à chiotte",
+                "short-description": "Spouik spouik",
+                "full-description": "...",
+                "price": 6.90,
+                "quantity": 7
+            }
+        ]
+    },
     "Header": {
         "goodies": {
             "titre": "Les goodies",
