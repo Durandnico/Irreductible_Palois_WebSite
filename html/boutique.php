@@ -16,7 +16,7 @@
     </head>
     
     <?php
-        include '../inc/header.html';
+        include 'header.htm';
     ?>
 
     <div class="header_filter">
@@ -78,11 +78,11 @@
             
 
             <?php
-                include_once 'inc/footer.html';
+                include_once 'inc/footer.htm';
             ?>
         </div>
     </body>
 
     <!-- JS -->
     <script src="../js/shop.js"></script>
-</html>
+<html>

@@ -2,7 +2,7 @@
     session_start();
 ?>
 
-<html>
+html>
     <head>
         <title>Les irréductibles Palois</title>
         <meta charset="utf-8" />
@@ -11,7 +11,7 @@
     </head>
 
     <?php
-        include '../inc/header.html';
+        include 'header.htm';
     ?>
 
     <body>
@@ -20,6 +20,6 @@
     </body>
 
     <?php
-        include '../inc/footer.html';
+        include 'footer.htm';
     ?>
-</html>
+<html>

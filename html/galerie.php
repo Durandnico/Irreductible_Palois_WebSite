@@ -11,14 +11,17 @@
     </head>
 
     <?php
-        include '../inc/header.html';
+        include 'header.htm';
     ?>
     
     <body>
         
+     	<?php
+		require 'construction.php';
+	?>
     </body>
 
     <?php
-        include '../inc/footer.html';
+        include 'footer.htm';
     ?>
-</html>
+<html>

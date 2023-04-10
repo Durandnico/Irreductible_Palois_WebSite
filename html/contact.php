@@ -11,7 +11,7 @@
     </head>
 
     <?php
-        require '../inc/header.html';
+        require 'header.htm';
     ?>
 
     <body>
@@ -139,8 +139,8 @@
     </body>
 
     <?php
-        include '../inc/footer.html';
+        include 'footer.htm';
     ?>
 
     <script src="../js/verif.js"></script>
-</html>
+<html>

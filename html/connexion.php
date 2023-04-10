@@ -11,7 +11,7 @@
     </head>
 
     <?php
-        include '../inc/header.html';
+        include 'header.htm';
     ?>
 
     <body>
@@ -19,6 +19,6 @@
     </body>
 
     <?php
-        include '../inc/footer.html';
+        include 'footer.htm';
     ?>
-</html>
+<html>

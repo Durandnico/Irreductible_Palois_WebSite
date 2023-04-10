@@ -126,7 +126,6 @@ header {
     height: 6rem;
     margin-left: 10%;
     overflow: hidden;
-    background-color: #0693e3;
 }
 
 .main_logo img {
@@ -137,7 +136,6 @@ header {
 
 .logoo {
     align-items: center;
-    background-color: blue;
 }
 
 
