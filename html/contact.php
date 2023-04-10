@@ -24,7 +24,7 @@
                     <p>Vous avez une question ? Vous souhaitez nous faire part d'un problème ? N'hésitez pas à nous contacter !</p>
                 </div>
 
-                <form id="form-id" action="mailto:jaulingaut@cy-tech.fr" method="get" onsubmit="return form_verif()">
+                <form id="form-id" action="/php/verifForm.php" method="POST" onsubmit="return form_verif()">
                     
                     <div class="personnal-intel">
                         

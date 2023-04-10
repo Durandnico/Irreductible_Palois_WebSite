@@ -7,7 +7,7 @@
     </head>
     
     <?php
-        include 'html/header.html';
+        include 'html/header.htm';
         require_once 'php/varSession.inc.php'
     ?>
     
@@ -94,7 +94,7 @@
 
     
     <?php
-        include 'html/footer.html';
+        include 'html/footer.htm';
     ?>
 
 </html>

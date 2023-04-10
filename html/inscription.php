@@ -2,7 +2,7 @@
     session_start();
 ?>
 
-html>
+<html>
     <head>
         <title>Les irréductibles Palois</title>
         <meta charset="utf-8" />
