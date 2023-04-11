@@ -95,7 +95,7 @@ function verif_prenom_nom(input)
 {
     let champ = input.value;                                    // The value of the input
     let error = document.getElementById("verif_" + input.id);   // The error div
-    const VALID_NAME = /^[a-zA-Z]+$/;                           // Regex for a valid name
+    const VALID_NAME = /^[a-zA-Z_-]+$/;                           // Regex for a valid name
 
     
     if(champ.match(VALID_NAME))
@@ -335,6 +335,7 @@ function form_verif()
     let verif = true;
     verif = verif_prenom_nom(prenom) && verif;
     verif = verif_prenom_nom(nom) && verif;
+    verif = verif_mail(email) && verif;
     verif = verif_date(bday) && verif;
     verif = verif_radio(gender) && verif;
     verif = verif_select(job) && verif;
@@ -343,4 +344,13 @@ function form_verif()
     verif = verif_not_empty(message) && verif;
 
     return (verif);
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/* when the page is loaded  check if the php verif return something and double check*/
+document.getElementsByTagName("body")[0].onload = () => {
+    if(document.getElementsByTagName("body")[0].id == "verif")
+        form_verif();
 }

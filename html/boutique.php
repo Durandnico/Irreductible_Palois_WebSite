@@ -65,7 +65,7 @@
                     if(!isset($_GET['cat']))
                         foreach( $_SESSION['shop_data']['shop'] as $key => $value) 
                         {
-                            $MY_GET = $key;
+                            $cat = $key;
                             include '../php/boutique.php';
 
                         }
