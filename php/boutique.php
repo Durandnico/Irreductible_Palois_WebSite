@@ -2,9 +2,6 @@
 
     session_start();
     
-    if( !isset($_GET['cat']) ) 
-        $cat = $MY_GET;
-
     $data = $_SESSION['shop_data']['shop'][$cat];
 ?>
 
