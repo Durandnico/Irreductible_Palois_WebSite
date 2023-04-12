@@ -35,7 +35,7 @@ define("FILE_XML", "../data/user.xml");
 /*                                  Function                                    */
 
 /*!
- *  \fn function get_data_csv($file, $delimiter=';')
+ *  \fn function get_data_xml($file, $delimiter=';')
  *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
  *  \version 0.1
  *  \date Wed 12 April 2023 - 18:12:56
@@ -44,17 +44,19 @@ define("FILE_XML", "../data/user.xml");
  *  \param $delimiter   :  delimiter of the file
  *  \return array       :  array of all users account
  *  \details
- *      in the return array, each line is an array of the line in the csv file
+ *      in the return array, each line is an array of the balise <user> of the xml file
  *      [0] is the id
  *      [1] is the username
  *      [2] is the password
  *      [3] is the surname
+ *      [4] is the connection status
  */
 function get_data_xml($file = FILE_XML) {
     
     $xml = simplexml_load_file($file);
     
     $data = array();
+
     $i = 0;
     foreach ($xml as $user) {
         $data[$i] = array();
@@ -83,11 +85,8 @@ function get_data_xml($file = FILE_XML) {
 function verif_connexion($username, $password) {
     $data = get_data_xml("../data/user.xml");
 
-    //var_dump($data);
-
     $i = 0;
     while ($data[$i]) {
-        //var_dump($data[$i]['username']);
         if ($data[$i]['username'] == $username && $data[$i]['password'] == $password)
             return ($data[$i]);
 
@@ -118,7 +117,9 @@ function log_in($id, $file = FILE_XML) {
         return (-1);
 
     $xml->user[(int) $id]->connected = "true";
-    
+    $xml->asXML($file);
+
+    unset($xml);
     return (0);
 }
 
@@ -135,23 +136,27 @@ if(isset($_SESSION['user_data']['id']))
 
 /* if the user is not connected, we check if he is in the database */
 if (isset($_POST['username']) && isset($_POST['password'])) {
-    echo "test<br>" ;
     $arr = verif_connexion($_POST['username'], $_POST['password']);
-    var_dump( $arr );
+    
     /* if so we create the session and redirect him to the home page */
     if ($arr) {
+        /* we create the session variable */
         $_SESSION['user_data']['id'] = $arr['id'];
         $_SESSION['user_data']['surname'] = $arr['surname'];
-        echo "IN  ". $arr['id']. "  <br>";
-        log_in($arr['id']);
-        //header('Location: index.php');
+
+        /* we change the value of the connected attribute to true */
+        $check = log_in($arr['id']);
+        if ($check == -1)
+            header('Location: /html/connexion.php?error=error_log_in');
+            
+        header('Location: /index.php');
     }
 
     /* if not, we redirect him to the sign in page */
     else {
-        echo "OUT";
-        //header('Location: /html/connexion.php?error=wrong_username_or_password');
+        header('Location: /html/connexion.php?error=wrong_username_or_password');
     }
+
     /* destroy the array w/ all data */
     unset($arr);
 }
