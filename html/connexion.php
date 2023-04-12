@@ -20,17 +20,17 @@ include 'header.htm';
     <div class="login-page">
         <div class="form">
             <img src="/img/NFC.jpg" alt="Naiwann">
-            <form class="register-form" method="$_POST">
+            <form class="register-form" method="POST">
                 <input type="text" placeholder="name" />
                 <input type="password" placeholder="password" />
                 <input type="text" placeholder="email address" />
-                <button>create</button>
+                <input type="submit" value="créer"/>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>
-            <form class="login-form" method="$_POST">
-                <input type="text" placeholder="username" />
-                <input type="password" placeholder="password" />
-                <button>login</button>
+            <form class="login-form" method="POST" action="/php/verifConnexion.php">
+                <input type="text" name=username placeholder="username" />
+                <input type="password" name=password placeholder="password" />
+                <input type="submit" value="login" />
                 <p class="message">Not registered? <a href="#">Create an account</a></p>
             </form>
         </div>
