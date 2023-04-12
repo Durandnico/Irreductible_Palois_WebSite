@@ -163,4 +163,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     /* destroy the array w/ all data */
     unset($arr);
 }
+
+/* if there are no POST var, we head to connexion */
+else {
+    header('Location: /html/connexion.php?error=form_not_filled');
+}
 ?>

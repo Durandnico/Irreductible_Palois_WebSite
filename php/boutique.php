@@ -1,8 +1,14 @@
 <?php
 
     session_start();
-    
+
+    if(!isset($cat)){
+        header("Location: /html/boutique.php?error=category_not_found");
+        exit();
+    }
+
     $data = $_SESSION['shop_data']['shop'][$cat];
+
 ?>
 
 

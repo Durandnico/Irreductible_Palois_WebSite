@@ -3,7 +3,7 @@
 /* **************************************************************************** */
 /*                                                                              */
 /*                                                       ::::::::  :::   :::    */
-/*   Project name                                       :+:    :+: :+:   :+:    */
+/*   IR Website                                         :+:    :+: :+:   :+:    */
 /*                                                    +:+         +:+ +:+       */
 /*   By: Durandnico <durandnico@cy-tech.fr>          +#+          +#++:         */
 /*                                                 +#+           +#+            */
@@ -65,6 +65,12 @@ function not_in_the_future($date) {
 /* **************************************************************************** */
 /*                                  MAIN                                    */
 
+var_dump($_POST);
+if(! isset($_POST['submit']))
+{
+    header("Location: /html/contact.php?error=form_not_filled");
+    exit();
+}
 
 $valid  =   /* check if not empty */
             $_POST['prenom'] != EMPTY_STRING
@@ -97,6 +103,6 @@ if ($valid) {
     );
 }
 
-Header('Location: /html/contact.php?birthday=' . $_POST['birthday'] .'&nom=' . $_POST['nom'] . '&prenom=' . $_POST['prenom'] .'&email='. $_POST['email'] .'&genre=' . $_POST['genre'] . '&job=' . $_POST['job'] . '&subject=' . $_POST['subject'] .'&message=' . $_POST['message']);
+//Header('Location: /html/contact.php?birthday=' . $_POST['birthday'] .'&nom=' . $_POST['nom'] . '&prenom=' . $_POST['prenom'] .'&email='. $_POST['email'] .'&genre=' . $_POST['genre'] . '&job=' . $_POST['job'] . '&subject=' . $_POST['subject'] .'&message=' . $_POST['message']);
 
 ?>

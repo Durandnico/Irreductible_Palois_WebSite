@@ -5,7 +5,7 @@
         <username>admin</username>
         <password>admin</password>
         <surname>Administrator</surname>
-        <connected>false</connected>
+        <connected>true</connected>
     </user>
 
     <user>

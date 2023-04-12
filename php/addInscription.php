@@ -114,4 +114,5 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['surn
     header("Location: /html/connexion.php?error=error_add_user");
 }
 
+header("Location: /html/connexion.php?error=form_not_filled");
 ?>

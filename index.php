@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <html>
     <head>
         <title>Les irréductibles Palois</title>
@@ -8,7 +12,9 @@
     
     <?php
         include 'html/header.htm';
-        require_once 'php/varSession.inc.php'
+
+        if( ! isset($_SESSION['shop_data']) )
+            require_once 'php/varSession.inc.php'
     ?>
     
     <body>
