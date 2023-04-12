@@ -20,10 +20,10 @@ include 'header.htm';
     <div class="login-page">
         <div class="form">
             <img src="/img/NFC.jpg" alt="Naiwann">
-            <form class="register-form" method="POST">
-                <input type="text" placeholder="name" />
-                <input type="password" placeholder="password" />
-                <input type="text" placeholder="email address" />
+            <form class="register-form" method="POST" action="/php/addInscription.php">
+                <input name="username" type="text" placeholder="username" />
+                <input name="surname" type="text" placeholder="sur-no   m" />
+                <input name="password" type="password" placeholder="password" />
                 <input type="submit" value="créer"/>
                 <p class="message">Already registered? <a href="#">Sign In</a></p>
             </form>

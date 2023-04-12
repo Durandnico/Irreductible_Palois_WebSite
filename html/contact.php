@@ -1,5 +1,4 @@
 <?php
-    var_dump($_GET);
     session_start();
 ?>
 

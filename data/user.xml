@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<userLis>
+<userList>
     <user>
         <id>0</id>
         <username>admin</username>
@@ -15,5 +15,4 @@
         <surname>BDE</surname>
         <connected>false</connected>
     </user>
-
-</userLis>
+</userList>

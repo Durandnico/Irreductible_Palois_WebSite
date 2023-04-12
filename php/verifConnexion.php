@@ -127,12 +127,15 @@ function log_in($id, $file = FILE_XML) {
 /*                                  Main                                        */
 
 session_start();
-
-var_dump($_POST);
+var_dump($_SESSION['user_data']);
 
 /* if the user is already connected, he is redirected to the home page */
-if(isset($_SESSION['user_data']['id']))
-    header('Location: index.php?error=already_connected');
+if(isset($_SESSION['user_data']['inscription']))
+{
+    unset($_SESSION['user_data']['inscription']);
+    header('Location: /index.php');
+    exit();
+}
 
 /* if the user is not connected, we check if he is in the database */
 if (isset($_POST['username']) && isset($_POST['password'])) {
