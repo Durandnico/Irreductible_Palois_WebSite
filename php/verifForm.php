@@ -91,6 +91,8 @@ $valid  =   /* check if not empty */
 echo '<br>';
 echo $valid;
 if ($valid) {
+    /* send mail */
+    /* le serveur n'est pas configuré donc on ne peut pas envoyer de mail */
     mail(
         "durandnico@cy-tech.fr",
         $_POST['subject'],
@@ -104,9 +106,9 @@ if ($valid) {
     );
 
     header("Location: /html/contact.php?success=mail_sent");
-//    exit();
+    exit();
 }
 
 Header('Location: /html/contact.php?birthday=' . $_POST['birthday'] .'&nom=' . $_POST['nom'] . '&prenom=' . $_POST['prenom'] .'&email='. $_POST['email'] .'&genre=' . $_POST['genre'] . '&job=' . $_POST['job'] . '&subject=' . $_POST['subject'] .'&message=' . $_POST['message']);
-
+exit();
 ?>
