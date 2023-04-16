@@ -62,17 +62,17 @@
                                     
                                     <div class="radio-btn">
                                         <label for="Homme">Homme</label>
-                                        <input  type="radio" name="genre" id="Homme" onclick="hide_error(this)">
+                                        <input <?php if(isset($_GET['genre']) && $_GET['genre'] == "Homme") echo "checked"; ?> type="radio" name="genre" id="Homme" value=Homme onclick="hide_error(this)">
                                     </div>
 
                                     <div class="radio-btn">
                                         <label for="Femme">Femme</label>
-                                        <input  type="radio" name="genre" id="Femme" onclick="hide_error(this)">
+                                        <input <?php if(isset($_GET['genre']) && $_GET['genre'] == "Femme") echo "checked"; ?> type="radio" name="genre" id="Femme" value=Femme onclick="hide_error(this)">
                                     </div>
 
                                     <div class="radio-btn">
                                         <label for="Dragon">MétéoRémite</label>
-                                        <input  type="radio" name="genre" id="Dragon" onclick="hide_error(this)">
+                                        <input <?php if(isset($_GET['genre']) && $_GET['genre'] == "MétéoRémite") echo "checked"; ?> type="radio" name="genre" id="Dragon" value=MétéoRémite onclick="hide_error(this)">
                                     </div>
                                     
                                 </fieldset>
@@ -84,10 +84,10 @@
                                     <div class="input-field">
                                         <label for="job"><span class="label-style">Metier</span></label>
                                         <select id="job" name="job"  value="<?php if(isset($_GET['job'])) echo $_GET['job'];?>" onfocusout="verif_select(this)">
-                                            <option value="choix">--Votre choix</option>
-                                            <option value="etudiant">Etudiant</option>
-                                            <option value="professeur">Professeur</option>
-                                            <option value="autre">Autre</option>
+                                            <option <?php if( isset($_GET['job']) && $_GET['job'] == "Choix") echo "selected" ?> value="choix">--Votre choix</option>
+                                            <option <?php if( isset($_GET['job']) && $_GET['job'] == "etudiant") echo "selected" ?> value="etudiant">Etudiant</option>
+                                            <option <?php if( isset($_GET['job']) && $_GET['job'] == "Professeur") echo "selected" ?> value="professeur">Professeur</option>
+                                            <option <?php if( isset($_GET['job']) && $_GET['job'] == "Autre") echo "selected" ?> value="autre">Autre</option>
                                         </select>
                                         <div class="verif">⚠ <span id="verif_job">Message d'erreur, selectionner</span></div>
                                     </div>
@@ -118,7 +118,7 @@
                         <div class="text-message">
                             <div class="input-field">
                                 <label for="message"><span class="label-style">Message</span></label>
-                                <textarea id="message" name="message" placeholder="Votre message.." style="height:200px; resize: none;" value="<?php if(isset($_GET['message'])) echo $_GET['message'];?>" onfocusout="verif_not_empty(this)"></textarea>
+                                <textarea id="message" name="message" placeholder="Votre message.." style="height:200px; resize: none;" onfocusout="verif_not_empty(this)"><?php if(isset($_GET['message'])) echo $_GET['message'];?></textarea>
                                 <div class="verif">⚠ <span id="verif_message">Message d'erreur bouboubou</span></div>
                             </div>
 

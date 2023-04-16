@@ -66,12 +66,12 @@ function not_in_the_future($date) {
 /*                                  MAIN                                    */
 
 var_dump($_POST);
-if(! isset($_POST['submit']))
+if(!isset($_POST))
 {
     header("Location: /html/contact.php?error=form_not_filled");
     exit();
 }
-
+$valid = false;
 $valid  =   /* check if not empty */
             $_POST['prenom'] != EMPTY_STRING
             && $_POST['nom'] != EMPTY_STRING
@@ -88,7 +88,8 @@ $valid  =   /* check if not empty */
             && not_in_the_future($_POST['birthday'])
             && isset($_POST['genre'])
             && $_POST['job'] != "choix";
-
+echo '<br>';
+echo $valid;
 if ($valid) {
     mail(
         "durandnico@cy-tech.fr",
@@ -101,8 +102,11 @@ if ($valid) {
         . "\r\nGenre :" . $_POST['genre']
         . "\r\nProfession :" . $_POST['job'],
     );
+
+    header("Location: /html/contact.php?success=mail_sent");
+//    exit();
 }
 
-//Header('Location: /html/contact.php?birthday=' . $_POST['birthday'] .'&nom=' . $_POST['nom'] . '&prenom=' . $_POST['prenom'] .'&email='. $_POST['email'] .'&genre=' . $_POST['genre'] . '&job=' . $_POST['job'] . '&subject=' . $_POST['subject'] .'&message=' . $_POST['message']);
+Header('Location: /html/contact.php?birthday=' . $_POST['birthday'] .'&nom=' . $_POST['nom'] . '&prenom=' . $_POST['prenom'] .'&email='. $_POST['email'] .'&genre=' . $_POST['genre'] . '&job=' . $_POST['job'] . '&subject=' . $_POST['subject'] .'&message=' . $_POST['message']);
 
 ?>
