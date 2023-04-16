@@ -195,6 +195,11 @@ header {
   display: inline-block;
 }
 
+#drop{
+    height: 0.5rem;
+    width: auto;
+
+}
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
@@ -209,7 +214,8 @@ header {
 }
 
 #cart {
-    margin-left: -200%;
+    margin-top: -20px;
+    margin-left: -75%;
     max-width: 300px;
 }
 
@@ -219,7 +225,6 @@ header {
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    justify-content: space-between;
     align-items: center;
     height: fit-content;
     width: auto;
@@ -251,12 +256,9 @@ header {
 
 .cart_entry_price {
     width: min-content;
-    padding: 0;
-    margin: 0;
+    padding-left: auto;
+    margin-left: auto;
 }
-
-
-
 
 /* Links inside the dropdown */
 .dropdown-content *{

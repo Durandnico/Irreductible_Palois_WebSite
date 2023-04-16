@@ -8,7 +8,8 @@
         <li><a href="/html/nous.php">Nous</a></li>
         <li>
             <div class="dropdown">
-                <a class="dropbtn" href="/html/boutique.php">Boutique</a>
+                <a class="dropbtn" href="/html/boutique.php">Boutique
+        <img src="/img/dropdown.jpg" id=drop></a>
                 <div class="dropdown-content">
                     <a id=item href="/html/boutique.php?cat=goodies">Goodies</a>
                     <a id=item href="/html/boutique.php?cat=alcool">Alcool</a>
@@ -30,7 +31,7 @@
         else {
             echo '<li>
                 <div class="dropdown">
-                    <a class="dropbtn" > Panier</a>
+                    <a class="dropbtn" ><img src="/img/panier.jpg" class=main_logo></a>
                     <div class="dropdown-content" id="cart">';
             
             if(!isset($_SESSION['cart']))
