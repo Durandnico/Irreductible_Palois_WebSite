@@ -1,7 +1,5 @@
 <?php
-
-    session_start();
-
+    
     if(!isset($cat)){
         header("Location: /html/boutique.php?error=category_not_found");
         exit();
@@ -47,8 +45,8 @@
         echo '      <div class="content">';
         echo '          <h4>' . $value['name'] . '</h4>';
         echo '          <h5>' . $value['short-description'] . '€</h5>';
-        echo '          <h3>' . $value['price'] . '</h3>';
-        echo '          <span class="' . $_SESSION['shop_data']['Header'][$cat]['quantity'] . '" style="visibility:hidden;">Quantité max : ' . $value['quantity'] . '</span>';
+        echo '          <h3>' . $value['price'] . '€</h3>';
+        echo '          <span class="' . $_SESSION['shop_data']['Header'][$cat]['quantity'] . '" style="visibility:hidden;">Quantité max : <span>' . $value['quantity'] . '</span></span>';
         echo '          <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>';
         echo '      </div>';
         echo '  </div>';

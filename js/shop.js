@@ -227,3 +227,35 @@ function all_quantity_visibility(classname, state)
 
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
+/*!
+ *  \fn function test()
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Sun 16 April 2023 - 15:29:28
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+async function add_to_cart(that) {
+
+    console.log("test IN");
+    //const product = that.parentNode.parentNode;
+    let post = that.parentNode.children[0].children[0].textContent;
+    console.log(post);
+    const response = await fetch("http://localhost:8080/php/addCart.php"
+    ,{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "product=" + post + "&quantity=" + document.getElementById("qte").value
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(err => console.log(err));
+    
+    return (0);
+}
+
+console.log("test OUT");
