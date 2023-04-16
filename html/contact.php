@@ -11,7 +11,7 @@
     </head>
 
     <?php
-        require 'header.htm';
+        require 'header.php';
     ?>
 
     <body id=<?php if(isset($_GET['prenom'])) echo "verif"; else echo "clean"; ?>>

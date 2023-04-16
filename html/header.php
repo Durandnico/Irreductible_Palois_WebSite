@@ -22,7 +22,30 @@
     </ul>
 
     <ul class="menu-sign">
-        <li><a href="/html/connexion.php">Connexion</a></li>
+        <?php
+
+        if( !isset($_SESSION['user_data']['surname']) ) 
+            echo '<li><a href="/html/connexion.php">Connexion</a></li>';
+        
+        else {
+            echo '<li>
+                <div class="dropdown">
+                    <a class="dropbtn" > Panier</a>
+                    <div class="dropdown-content" id="panier">
+                        <p>Le panier est vide</p>
+                    </div>
+                </div> 
+            </li>';
+            echo '<li>
+                <div class="dropdown">
+                    <a class="dropbtn">' . $_SESSION['user_data']['surname'] . '</a>
+                    <div class="dropdown-content">
+                        <a href="/php/end_session.php">Deconnexion</a>
+                    </div>
+                </div> 
+            </li>';
+        }
+        ?>
     </ul>
 </header>
 <div class="my_padding_top"></div>

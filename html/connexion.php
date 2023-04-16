@@ -13,7 +13,7 @@ session_start();
 </head>
 
 <?php
-include 'header.htm';
+include 'header.php';
 ?>
 
 <body>

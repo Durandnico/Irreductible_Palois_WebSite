@@ -1,7 +1,12 @@
 <?php
     session_start();
-    $cat = $_GET['cat'];
+    
+    if(!isset($_SESSION['user_data']['id']))
+        header('Location: connexion.php?error=must_be_connected');
 
+    if(isset($_GET['cat']))
+        $cat = $_GET['cat'];
+    
     if(isset($_GET['cat']) &&  !isset($_SESSION['shop_data']['shop'][$cat]) ) 
         header('Location: ../index.php?error=1');
 
@@ -16,13 +21,14 @@
     </head>
     
     <?php
-        include 'header.htm';
+        include 'header.php';
     ?>
 
     <div class="header_filter">
 
     </div>
 
+    <input type="number"  value= <?php echo $_SESSION['user_data']['id']; ?>>
 </div>
     <body>
         <div class="Zoomed-product" hidden onblur="close_zoomed_product(this)">
@@ -48,7 +54,7 @@
                         </fieldset>
                         <span> quantité max : <span id="q_max"></span></span>
                     </div>
-                    <button><div class="my_filter"><p>Acheter</p></div></button>
+                    <button onclick="add_to_cart(this);"><div class="my_filter"><p>Acheter</p></div></button>
                 </div>    
             </div>
             <button id="quit" onclick="close_zoomed_product()">X</button>
@@ -67,7 +73,6 @@
                         {
                             $cat = $key;
                             include '../php/boutique.php';
-
                         }
                     else
                         include_once '../php/boutique.php';
@@ -78,11 +83,11 @@
             
 
             <?php
-                include_once 'inc/footer.htm';
+                include_once 'footer.htm';
             ?>
         </div>
     </body>
 
     <!-- JS -->
-    <script src="../js/shop.js"></script>
+    <script src="/js/shop.js"></script>
 <html>

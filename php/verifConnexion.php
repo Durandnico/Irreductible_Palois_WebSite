@@ -127,13 +127,11 @@ function log_in($id, $file = FILE_XML) {
 /*                                  Main                                        */
 
 session_start();
-var_dump($_SESSION['user_data']);
-
 /* if the user is already connected, he is redirected to the home page */
 if(isset($_SESSION['user_data']['inscription']))
 {
     unset($_SESSION['user_data']['inscription']);
-    header('Location: /index.php');
+    header('Location: /index.php?ierror=test');
     exit();
 }
 
@@ -143,16 +141,17 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     
     /* if so we create the session and redirect him to the home page */
     if ($arr) {
+
         /* we create the session variable */
-        $_SESSION['user_data']['id'] = $arr['id'];
-        $_SESSION['user_data']['surname'] = $arr['surname'];
+        $_SESSION['user_data']['id'] = (int) $arr['id'];
+        $_SESSION['user_data']['surname'] = (string) $arr['surname'];
 
         /* we change the value of the connected attribute to true */
         $check = log_in($arr['id']);
         if ($check == -1)
             header('Location: /html/connexion.php?error=error_log_in');
             
-        header('Location: /index.php');
+        header('Location: /index.php?login=e');
     }
 
     /* if not, we redirect him to the sign in page */
