@@ -15,6 +15,7 @@ sudo apt-get update && sudo apt-get install php
 #### Lancer le serveur
 ***
 Dans le même dossier que le README
+Exécuter la commande suivante dans le terminal
 ```sh
 php -S localhost:8080
 ```
