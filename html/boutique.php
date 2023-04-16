@@ -27,26 +27,27 @@
     <div class="header_filter">
 
     </div>
-
-    <input type="number"  value= <?php echo $_SESSION['user_data']['id']; ?>>
 </div>
     <body>
         <div class="Zoomed-product" hidden onblur="close_zoomed_product(this)">
             <div class="product-content">
-                <div id="img-background" class="product-content-image"></div>
+                <div id="img-background" class="product-content-image">
+                    <img id="img-zoomed" src="/img/produits/1.jpg" alt="image zoomed" style="display: none;"/>
+                </div>
                 <div class="product-content-info">
                     <div id="intels" class="text">
                         <h1>Casque polonais (légérement abimé)</h1>
                         <h3>Utile pour initiation de famille!</h3>
                         <!--<h4>conseil d'utilisation: préparer 5 shooters sur une table, munissez-vous d'objets insolites (pied de table, panneau de circulation, gant de boxe) et surtout n'oubliez pas d'immortaliser le moment</h4> -->
                         <h4>More description to add</h4>
-                        <h2>69€</h2>
+                        <h2 id=price>69€</h2>
+                        <input type="number" style="display: none;" id=id_fullProduct >
                     </div>
 
                     <div class="quantite">
                         <fieldset class="quantity">
                             <legend>Quantité</legend>
-                            <input id="qte" type="number" class="number" value=1 />
+                            <input id="qte" type="number" class="number" value=0 />
                             <div class="btnplusmoins"> 
                                 <button class="plus" onclick="plusmoins(+1)"><div class="my_filter">+</div></button>
                                 <button class="minus" onclick="plusmoins(-1)"><div class="my_filter">-</div></button>

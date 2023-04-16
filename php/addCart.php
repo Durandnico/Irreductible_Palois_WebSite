@@ -38,10 +38,11 @@ define("FILE_XML", "../data/user.xml");
 
 session_start();
 
+echo "OK";
 if(!isset($_SESSION['cart']))
     $_SESSION['cart'] = array();
 
-var_dump($_POST);
+//var_dump($_POST);
 
 
 

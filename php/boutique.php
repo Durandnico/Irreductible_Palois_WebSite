@@ -30,7 +30,9 @@
 
 
     /* corps de la table */
-    $i = 0;
+    if(!isset($i))
+        $i = 0;
+
     $id = "";
     if ($cat == "alcool") $id = 'id="contain" ';
     foreach ($data as $key => $value) {
@@ -38,15 +40,15 @@
             echo '<tr>';
         }
         echo '<td>';
-        echo '  <div class="product">';
+        echo '  <div class="product" id='. $i .'>';
         echo '      <div class="product-img">';
         echo '          <img src="' . $value['image'] . '" ' . $id . ' alt="' . $value['alt'] . '" />';
         echo '      </div>';
         echo '      <div class="content">';
         echo '          <h4>' . $value['name'] . '</h4>';
-        echo '          <h5>' . $value['short-description'] . '€</h5>';
+        echo '          <h5>' . $value['short-description'] . '</h5>';
         echo '          <h3>' . $value['price'] . '€</h3>';
-        echo '          <span class="' . $_SESSION['shop_data']['Header'][$cat]['quantity'] . '" style="visibility:hidden;">Quantité max : <span>' . $value['quantity'] . '</span></span>';
+        echo '          <span class="' . $_SESSION['shop_data']['Header'][$cat]['quantity'] . '" style="visibility:hidden;">Quantité max : <span id=qte_'.$i.'>' . $value['quantity'] . '</span></span>';
         echo '          <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>';
         echo '      </div>';
         echo '  </div>';
@@ -57,6 +59,7 @@
         $i++;
     }
 
+    $i += 4 - ($i % 4);
     /* pied de la table */
     echo '      </tbody>';
     echo '  </table>';

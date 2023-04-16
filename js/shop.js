@@ -31,7 +31,6 @@ const full_product  = document.getElementsByClassName('Zoomed-product')[0]; // T
 var filtered = false; // True if the background is filtered, false otherwise
 var itsborken = false; // because close func is broken
 var hid_quant = true; // True if the quantity is hidden, false otherwise
-var q_max = 0; // The maximum quantity of the product
 
 /* ********************************  function  ************************************************ */
 
@@ -150,10 +149,13 @@ function show_zoomed_product(that)
     
     /* set the quantity */
     full_product.children[0].children[1].children[1].children[1].children[0].innerHTML = that.parentNode.children[3].children[0].innerHTML;
-    q_max = parseInt(that.parentNode.children[3].children[0].innerHTML);
-
+    
     /*set quantity input to 1 */
-    document.getElementById("qte").value = 1;
+    document.getElementById("qte").value = 0;
+
+    /* set the id of the product */
+    document.getElementById("id_fullProduct").value = product.id;
+    console.log(document.getElementById("id_fullProduct").value);
 }
 
 
@@ -168,6 +170,8 @@ function show_zoomed_product(that)
  *  \brief increment or decrement the quantity input 
  */
 function plusmoins(int_value){
+    const q_max = parseInt(document.getElementById("q_max").textContent);
+    
     if(int_value == 1 && document.getElementById("qte").value < q_max)
         document.getElementById("qte").value++;  
 
@@ -181,7 +185,7 @@ function plusmoins(int_value){
         document.getElementById("qte").value = value;
     }
 
-    else
+    else if (int_value != -1 && int_value != 1)
         console.log("Wrong value");
 
 }
@@ -239,23 +243,104 @@ function all_quantity_visibility(classname, state)
  */
 async function add_to_cart(that) {
 
-    console.log("test IN");
-    //const product = that.parentNode.parentNode;
+    let product = that.parentNode.parentNode;
     let post = that.parentNode.children[0].children[0].textContent;
-    console.log(post);
-    const response = await fetch("http://localhost:8080/php/addCart.php"
+    let qte = document.getElementById("qte");
+    let price = document.getElementById("price").textContent;
+    let img = product.children[0].style.backgroundImage.replace("url(\"", "").replace("\")", "");
+    let id = document.getElementById("id_fullProduct").value;
+
+    if (qte.value == 0)
+        return;
+    
+    /* send the request */
+    const response = await fetch("/php/addCart.php"
     ,{
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: "product=" + post + "&quantity=" + document.getElementById("qte").value
+        body: "product=" + post + "&quantity=" + qte.value + "&price=" + price + "&img=" + img
     })
     .then(response => response.text())
-    .then(data => console.log(data))
+    .then(function(data) {
+        
+        console.log(data);
+        if (data == "OK"){
+            add_dom_cart(post, qte.value, price, img);
+
+            /* update the quantity */
+            let base_qte = document.getElementById("qte_" + id);
+            let q_max = document.getElementById("q_max");
+            base_qte.innerHTML = parseInt(base_qte.innerHTML) - parseInt(qte.value);
+            q_max.innerHTML = base_qte.innerHTML;
+            qte.value = 0;
+
+        }
+        else
+            console.log("KO");
+    })
     .catch(err => console.log(err));
     
     return (0);
 }
 
-console.log("test OUT");
+
+/*-------------------------------------------------------------------------------------------------------------------------------*/
+
+/*!
+ *  \fn function add_dom_cart(post, qte, price, img)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Sun 16 April 2023 - 17:57:01
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function add_dom_cart(post, qte, price, img) {
+    
+    /* remove "empty cart" */
+    if(document.getElementsByClassName("empty_cart").length == 1)
+    document.getElementsByClassName("empty_cart")[0].remove();
+
+    /* add the product to the cart */
+    /* the hell of the DOM  is about to rain*/
+    let cart_entry = document.createElement("div");
+    cart_entry.className = "cart_entry";
+
+    let cart_entry_img = document.createElement("img");
+    cart_entry_img.className = "cart_entry_img";
+    cart_entry_img.src = img;
+
+    let cart_entry_intels = document.createElement("div");
+    cart_entry_intels.className = "cart_entry_intels";
+
+    let cart_entry_intels_name = document.createElement("span");
+    cart_entry_intels_name.className = "cart_entry_intels_name";
+    cart_entry_intels_name.innerHTML = post;
+    cart_entry_intels_name.style.fontWeight = "bold";
+
+    let cart_entry_intels_quantity = document.createElement("span");
+    cart_entry_intels_quantity.className = "cart_entry_intels_quantity";
+    cart_entry_intels_quantity.innerHTML = qte + "x";
+
+    cart_entry_intels.appendChild(cart_entry_intels_name);
+    cart_entry_intels.appendChild(cart_entry_intels_quantity);
+
+    let cart_entry_price = document.createElement("span");
+    cart_entry_price.className = "cart_entry_price";
+    cart_entry_price.innerHTML = price //product.children[1].children[3].innerHTML;
+
+
+    cart_entry.appendChild(cart_entry_img);
+    cart_entry.appendChild(cart_entry_intels);
+    cart_entry.appendChild(cart_entry_price);
+
+    cart_entry.style.id = "item";
+    document.getElementById("cart").appendChild(cart_entry);
+
+    /* of you survive the DOM, well played :) */
+
+    return (0);
+}

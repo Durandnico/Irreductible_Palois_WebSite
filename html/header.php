@@ -10,9 +10,9 @@
             <div class="dropdown">
                 <a class="dropbtn" href="/html/boutique.php">Boutique</a>
                 <div class="dropdown-content">
-                    <a href="/html/boutique.php?cat=goodies">Goodies</a>
-                    <a href="/html/boutique.php?cat=alcool">Alcool</a>
-                    <a href="/html/boutique.php?cat=Random">Autre</a>
+                    <a id=item href="/html/boutique.php?cat=goodies">Goodies</a>
+                    <a id=item href="/html/boutique.php?cat=alcool">Alcool</a>
+                    <a id=item href="/html/boutique.php?cat=Random">Autre</a>
                 </div>
             </div> 
         </li>
@@ -31,8 +31,8 @@
             echo '<li>
                 <div class="dropdown">
                     <a class="dropbtn" > Panier</a>
-                    <div class="dropdown-content" id="panier">
-                        <p>Le panier est vide</p>
+                    <div class="dropdown-content" id="cart">
+                        <p id=item class="empty_cart">Le panier est vide</p>
                     </div>
                 </div> 
             </li>';
@@ -40,7 +40,7 @@
                 <div class="dropdown">
                     <a class="dropbtn">' . $_SESSION['user_data']['surname'] . '</a>
                     <div class="dropdown-content">
-                        <a href="/php/end_session.php">Deconnexion</a>
+                        <a id=item href="/php/end_session.php">Deconnexion</a>
                     </div>
                 </div> 
             </li>';
