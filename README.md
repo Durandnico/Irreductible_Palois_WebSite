@@ -7,14 +7,15 @@
 
 #### Pré-requis
 ***
-need to install the following dependencies: php.
+-need to install the following dependencies: php.
 On Ubuntu this is the commande
 ```sh
 sudo apt-get update && sudo apt-get install php
 ```
+-must be connected to internet to fully work, DO NOT OPEN THE WEBSITE OFFLINE
 #### Lancer le serveur
 ***
-Dans le même dossier que le README
+Dans le même dossier que le README. 
 Exécuter la commande suivante dans le terminal
 ```sh
 php -S localhost:8080
