@@ -21,17 +21,17 @@ include 'header.php';
         <div class="form">
             <img src="/img/NFC.jpg" alt="Naiwann">
             <form class="register-form" method="POST" action="/php/addInscription.php">
-                <input name="username" type="text" placeholder="username" />
-                <input name="surname" type="text" placeholder="sur-no   m" />
-                <input name="password" type="password" placeholder="password" />
+                <input name="username" type="text" placeholder="pseudonyme" />
+                <input name="surname" type="text" placeholder="sur-nom" />
+                <input name="password" type="password" placeholder="Mot de passe" />
                 <input type="submit" value="créer"/>
-                <p class="message">Already registered? <a href="#">Sign In</a></p>
+                <p class="message">Déjà inscrit? <a href="#">Connectez-vous</a></p>
             </form>
             <form class="login-form" method="POST" action="/php/verifConnexion.php">
-                <input type="text" name=username placeholder="username" />
-                <input type="password" name=password placeholder="password" />
+                <input type="text" name=username placeholder="pseudonyme" />
+                <input type="password" name=password placeholder="Mot de passe" />
                 <input type="submit" value="login" />
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
+                <p class="message">Pas encore inscrit? <a href="#">Créer votre compte</a></p>
             </form>
         </div>
     </div>
