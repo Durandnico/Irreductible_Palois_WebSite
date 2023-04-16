@@ -276,6 +276,8 @@ async function add_to_cart(that) {
             q_max.innerHTML = base_qte.innerHTML;
             qte.value = 0;
 
+            /* close the full product */
+            close_zoomed_product();
         }
         else
             console.log("KO");
@@ -300,9 +302,18 @@ async function add_to_cart(that) {
  */
 function add_dom_cart(post, qte, price, img) {
     
+
     /* remove "empty cart" */
     if(document.getElementsByClassName("empty_cart").length == 1)
     document.getElementsByClassName("empty_cart")[0].remove();
+
+    /* verify if the product is already in the cart */
+    for(let item of document.getElementsByClassName("cart_entry_intels_name")){
+        if (item.innerHTML == post){
+            item.parentNode.children[1].innerHTML = parseInt(item.parentNode.children[1].innerHTML) + parseInt(qte);
+            return (0);
+        }
+    }
 
     /* add the product to the cart */
     /* the hell of the DOM  is about to rain*/

@@ -31,9 +31,24 @@
             echo '<li>
                 <div class="dropdown">
                     <a class="dropbtn" > Panier</a>
-                    <div class="dropdown-content" id="cart">
-                        <p id=item class="empty_cart">Le panier est vide</p>
-                    </div>
+                    <div class="dropdown-content" id="cart">';
+            
+            if(!isset($_SESSION['cart']))
+                echo   '<p id=item class="empty_cart">Le panier est vide</p>';
+            else {
+                foreach ($_SESSION['cart'] as $key => $value) {
+                    echo    '<div id=item class="cart_entry">
+                                <img src="' . $value['img'] . '" alt="' . $key . '" class="cart_entry_img"/>
+                                <div class="cart_entry_intels">
+                                    <span class="cart_entry_intels_name" style="font-weight: bold;">' . $value['name'] . '</span>
+                                    <span class="cart_entry_intels_quantity">' . $value['quantity'] . 'x</span>
+                                </div>
+                                <span class="cart_entry_price" >' . $value['price'] . '</span>
+                            </div>';
+                }
+            }
+            
+            echo '  </div>
                 </div> 
             </li>';
             echo '<li>

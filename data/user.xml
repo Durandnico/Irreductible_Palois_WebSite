@@ -5,13 +5,13 @@
         <username>admin</username>
         <password>admin</password>
         <surname>Administrator</surname>
-        <connected>false</connected>
+        <connected>true</connected>
     </user>
     <user>
         <id>1</id>
         <username>Paularis</username>
         <password>Titou49.3</password>
         <surname>BDE</surname>
-        <connected>true</connected>
+        <connected>false</connected>
     </user>
 </userList>
