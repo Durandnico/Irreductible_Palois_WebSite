@@ -11,7 +11,7 @@ session_start();
     </head>
     
     <?php
-        include 'html/header.php';
+        include 'pages/header.php';
 
         if( ! isset($_SESSION['shop_data']) )
             require_once 'php/varSession.inc.php'
@@ -36,7 +36,7 @@ session_start();
 
             <div class="menu-image">
 
-                <a href="/html/nous.php" >
+                <a href="/pages/nous.php" >
                     <div class="petite-image-menu" id=i1>
                         <div class="filter-petite-image-menu">
                             <div class="text-petite-image-menu">
@@ -50,7 +50,7 @@ session_start();
                     </div>
                 </a>
 
-                <a href="/html/boutique.php" >
+                <a href="/pages/boutique.php" >
                     <div class="petite-image-menu" id=i2 style="background-color:rgb(34, 108, 181)">
                         <div class="filter-petite-image-menu">
                             <div class="text-petite-image-menu">
@@ -63,7 +63,7 @@ session_start();
                     </div>
                 </a>
 
-                <a href="/html/galerie.php" >
+                <a href="/pages/galerie.php" >
                     <div class="petite-image-menu" id=i3 style="background-color: yellow;">
                         <div class="filter-petite-image-menu">
                             <div class="text-petite-image-menu">
@@ -77,7 +77,7 @@ session_start();
                 </a>
 
 
-                <a href="/html/candidature.php" >
+                <a href="/pages/candidature.php" >
                     <div class="petite-image-menu" id=i4 style="background-color: green;">
                         
                         <div class="filter-petite-image-menu">
@@ -100,7 +100,7 @@ session_start();
 
     
     <?php
-        include 'html/footer.htm';
+        include 'pages/footer.htm';
     ?>
 
 </html>

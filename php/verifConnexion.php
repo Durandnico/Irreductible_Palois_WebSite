@@ -149,14 +149,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         /* we change the value of the connected attribute to true */
         $check = log_in($arr['id']);
         if ($check == -1)
-            header('Location: /html/connexion.php?error=error_log_in');
+            header('Location: /pages/connexion.php?error=error_log_in');
             
         header('Location: /index.php?login=e');
     }
 
     /* if not, we redirect him to the sign in page */
     else {
-        header('Location: /html/connexion.php?error=wrong_username_or_password');
+        header('Location: /pages/connexion.php?error=wrong_username_or_password');
     }
 
     /* destroy the array w/ all data */
@@ -165,6 +165,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 /* if there are no POST var, we head to connexion */
 else {
-    header('Location: /html/connexion.php?error=form_not_filled');
+    header('Location: /pages/connexion.php?error=form_not_filled');
 }
 ?>

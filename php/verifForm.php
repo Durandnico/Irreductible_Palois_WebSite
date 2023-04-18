@@ -68,7 +68,7 @@ function not_in_the_future($date) {
 var_dump($_POST);
 if(!isset($_POST))
 {
-    header("Location: /html/contact.php?error=form_not_filled");
+    header("Location: /pages/contact.php?error=form_not_filled");
     exit();
 }
 $valid = false;
@@ -105,10 +105,10 @@ if ($valid) {
         . "\r\nProfession :" . $_POST['job'],
     );
 
-    header("Location: /html/contact.php?success=mail_sent");
+    header("Location: /pages/contact.php?success=mail_sent");
     exit();
 }
 
-Header('Location: /html/contact.php?birthday=' . $_POST['birthday'] .'&nom=' . $_POST['nom'] . '&prenom=' . $_POST['prenom'] .'&email='. $_POST['email'] .'&genre=' . $_POST['genre'] . '&job=' . $_POST['job'] . '&subject=' . $_POST['subject'] .'&message=' . $_POST['message']);
+Header('Location: /pages/contact.php?birthday=' . $_POST['birthday'] .'&nom=' . $_POST['nom'] . '&prenom=' . $_POST['prenom'] .'&email='. $_POST['email'] .'&genre=' . $_POST['genre'] . '&job=' . $_POST['job'] . '&subject=' . $_POST['subject'] .'&message=' . $_POST['message']);
 exit();
 ?>

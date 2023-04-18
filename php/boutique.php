@@ -1,7 +1,7 @@
 <?php
     
     if(!isset($cat)){
-        header("Location: /html/boutique.php?error=category_not_found");
+        header("Location: /pages/boutique.php?error=category_not_found");
         exit();
     }
 

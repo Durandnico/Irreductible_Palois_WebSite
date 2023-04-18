@@ -74,7 +74,7 @@ function add_user($id, $username, $password, $surname, $file = FILE_XML) {
     $user->addChild('username', $username);
     $user->addChild('password', $password);
     $user->addChild('surname', $surname);
-    $user->addChild('connected', 'true');
+    $user->addChild('connected', 'true\n');
 
     $xml->asXML($file);
 
@@ -92,7 +92,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['surn
     
     if (check_user($_POST['username'])) {
         echo "Username already used";
-        header("Location: /html/connexion.php?error=username_already_used");
+        header("Location: /pages/connexion.php?error=username_already_used");
         exit();
     }
 
@@ -111,8 +111,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['surn
     } 
 
     echo "Error";
-    header("Location: /html/connexion.php?error=error_add_user");
+    header("Location: /pages/connexion.php?error=error_add_user");
 }
 
-header("Location: /html/connexion.php?error=form_not_filled");
+header("Location: /pages/connexion.php?error=form_not_filled");
 ?>
