@@ -28,6 +28,9 @@
 /*                                  DEFINE                                      */
 
 define("FILE_XML", "../data/user.xml");
+define("EMPTY_STRING", "");
+define("VALID_SURNAME", "/^[a-zA-Z0-9._-]{1,10}$/");
+define("VALID_USERNAME", "/^[a-zA-Z-_.0-9]+$/");
 
 /* **************************************************************************** */
 /*                                  Function                                    */
@@ -89,7 +92,29 @@ session_start();
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['surname'])) {
     
+    /* check if they norm */
+    $error  = "";
+    if($_POST["username"] == EMPTY_STRING)
+        $error = "&username=cannot_be_empty";
+    else if(!preg_match(VALID_USERNAME, $_POST["username"]))
+        $error = "&username=can_only_contains_alphabetic_lettre_and_number";    
     
+    if($_POST['surname'] == EMPTY_STRING)
+        $error .= "&surname=cannot_be_empty";
+    else if (!preg_match(VALID_USERNAME, $_POST['surname']))
+        $error .= "&surname=can_only_contains_alphabetic_lettre_and_number";
+    else if (!preg_match(VALID_SURNAME, $_POST['surname']))
+        $error .= "&surname=cannot_exceed_10_characters";
+
+    if($_POST['password'] == EMPTY_STRING)
+        $error .= "&password=cannot_be_empty";
+
+    if($error != EMPTY_STRING)
+    {
+        header("Location: /pages/connexion.php?error=signUp".$error);
+        exit();
+    }
+
     if (check_user($_POST['username'])) {
         echo "Username already used";
         header("Location: /pages/connexion.php?error=username_already_used");
@@ -106,7 +131,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['surn
         $_SESSION['user_data']['id'] = count($xml->user) + 1;
         $_SESSION['user_data']['surname'] = $_POST['surname'];
 
-        header("Location: /php/verifConnexion.php");
+        header("Location: /index.php?sucess=signUp");
         exit();
     } 
 

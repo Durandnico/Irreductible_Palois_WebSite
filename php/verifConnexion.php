@@ -131,7 +131,7 @@ session_start();
 if(isset($_SESSION['user_data']['inscription']))
 {
     unset($_SESSION['user_data']['inscription']);
-    header('Location: /index.php?ierror=test');
+    header('Location: /index.php?error=already_connected');
     exit();
 }
 
@@ -151,7 +151,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         if ($check == -1)
             header('Location: /pages/connexion.php?error=error_log_in');
             
-        header('Location: /index.php?login=e');
+        header('Location: /index.php?success=signIn');
     }
 
     /* if not, we redirect him to the sign in page */

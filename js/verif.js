@@ -354,3 +354,102 @@ document.getElementsByTagName("body")[0].onload = () => {
     if(document.getElementsByTagName("body")[0].id == "verif")
         form_verif();
 }
+
+
+/* ******************************************************************************************************************************** */
+/*                                      For connexion.php                                                                           */
+
+/*!
+ *  \fn function verif_username(username_input)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Tue 18 April 2023 - 19:44:47
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function verif_username(username_input) {
+    let champ = username_input.value;                                    // The value of the input
+    let error = document.getElementById("verif_" + input.id);   // The error div
+    const VALID_NAME = /^[a-zA-Z_-0-9]+$/;                           // Regex for a valid name
+
+    
+    if(champ.match(VALID_NAME))
+    {
+        error.style.visibility = "hidden";
+        return (true);
+    }   
+    
+    /* If invalid name */
+    if(champ == EMPTY_STRING){
+        error.innerHTML = "Veuillez remplir le champ";
+    }
+    else{
+        error.innerHTML = "Veuillez entrer un " + input.id + " valide"  
+    }
+
+    error.style.visibility = "visible";
+    return (false);
+}
+
+
+
+/*!
+ *  \fn function verif_surname(surname_input)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Tue 18 April 2023 - 19:47:06
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function verif_surname(surname_input) {
+    let champ = surname_input.value;                                    // The value of the input
+    let error = document.getElementById("verif_" + input.id);   // The error div
+    const VALID_NAME = /^[a-zA-Z_-0-9]{1-10}$/;                           // Regex for a valid name
+
+    
+    if(champ.match(VALID_NAME))
+    {
+        error.style.visibility = "hidden";
+        return (true);
+    }   
+    
+    /* If invalid name */
+    if(champ == EMPTY_STRING){
+        error.innerHTML = "Veuillez remplir le champ";
+    }
+    else{
+        error.innerHTML = "Veuillez entrer un " + input.id + " valide"  
+    }
+
+    error.style.visibility = "visible";
+    return (false);
+}
+
+/*!
+ *  \fn function form_verif_signIn()
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Tue 18 April 2023 - 19:40:40
+ *  \brief 
+ *  \param none
+ *  \return 
+ *  \remarks 
+ */
+function form_verif_signUp() {
+    
+    const username  = document.getElementById("username");
+    const password  = document.getElementById("password");
+    const surname   = document.getElementById("password");
+
+    let verif = true;
+    verif   =   verif_surname(surname)      &&  verif;
+    verif   =   verif_username(username)    &&  verif;
+    verif   =   verif_not_empty(password)   &&  verif;
+
+    console.log(verif);
+    return (verif);
+}

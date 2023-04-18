@@ -10,6 +10,7 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/connexion.css">
+    <script src="/js/verif.js"></script>
 </head>
 
 <?php
@@ -20,10 +21,11 @@ include 'header.php';
     <div class="login-page">
         <div class="form">
             <img src="/img/NFC.jpg" alt="Naiwann">
-            <form class="register-form" method="POST" action="/php/addInscription.php">
-                <input name="username" type="text" placeholder="pseudonyme" />
-                <input name="surname" type="text" placeholder="sur-nom" />
-                <input name="password" type="password" placeholder="Mot de passe" />
+	    <p name="error_message" style="color: red; margin-bottom: 10px;"><?php if(isset($_GET['error'])) echo $_GET['error']; ?></p>
+	    <form class="register-form" method="POST" action="/php/addInscription.php" onsubmit="return form_verif_signUp();">
+                <input id=username name="username" type="text" placeholder="pseudonyme" />
+                <input id=surname name="surname" type="text" placeholder="sur-nom" />
+                <input id=password name="password" type="password" placeholder="Mot de passe" />
                 <input type="submit" value="créer"/>
                 <p class="message">Déjà inscrit? <a href="#">Connectez-vous</a></p>
             </form>
