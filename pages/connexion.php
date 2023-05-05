@@ -14,7 +14,7 @@ session_start();
 </head>
 
 <?php
-include 'header.php';
+require 'header.php';
 ?>
 
 <body>
@@ -52,7 +52,7 @@ include 'header.php';
 <!-- Thanks to Aigars Silkalns for the login form opensource -->
 
 <?php
-include 'footer.htm';
+require 'footer.htm';
 ?>
 
 <html>

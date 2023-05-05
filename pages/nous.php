@@ -11,7 +11,7 @@
     </head>
 
     <?php
-        include 'header.php';
+        require 'header.php';
     ?>
 
     <body>
@@ -21,6 +21,6 @@
     </body>
 
     <?php
-        include 'footer.htm';
+        require 'footer.htm';
     ?>
 <html>

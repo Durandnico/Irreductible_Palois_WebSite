@@ -21,7 +21,7 @@
     </head>
     
     <?php
-        include 'header.php';
+        require 'header.php';
     ?>
 
     <div class="header_filter">
@@ -73,10 +73,10 @@
                         foreach( $_SESSION['shop_data']['shop'] as $key => $value) 
                         {
                             $cat = $key;
-                            include '../php/boutique.php';
+                            require '../php/boutique.php';
                         }
                     else
-                        include_once '../php/boutique.php';
+                        require_once '../php/boutique.php';
                 ?> 
             
             </div>
@@ -84,7 +84,7 @@
             
 
             <?php
-                include_once 'footer.htm';
+                require_once 'footer.htm';
             ?>
         </div>
     </body>

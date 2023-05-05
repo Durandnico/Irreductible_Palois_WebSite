@@ -139,7 +139,7 @@
     </body>
 
     <?php
-        include 'footer.htm';
+        require 'footer.htm';
     ?>
 
     <script src="../js/verif.js"></script>
