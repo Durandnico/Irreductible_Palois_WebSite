@@ -19,13 +19,8 @@
                         $categories = getCategories();
 
                         foreach ($categories as $category)
-                        {
                             echo '<a id=item href="/pages/boutique.php?cat=' . $category['name'] . '">' . $category['name'] . '</a>';
-                        }
-                        /*
-                        <a id=item href="/pages/boutique.php?cat=alcool">Alcool</a>
-                        <a id=item href="/pages/boutique.php?cat=goodies">Goodies</a>
-                        <a id=item href="/pages/boutique.php?cat=Random">Autre</a>*/
+                        
                     ?>
                 </div>
             </div> 

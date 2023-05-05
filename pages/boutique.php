@@ -1,14 +1,17 @@
 <?php
     session_start();
     
+    require_once '../php/bdd.php';
+    Connexion();
+
     if(!isset($_SESSION['user_data']['id']))
         header('Location: connexion.php?error=must_be_connected');
 
     if(isset($_GET['cat']))
         $cat = $_GET['cat'];
     
-    if(isset($_GET['cat']) &&  !isset($_SESSION['shop_data']['shop'][$cat]) ) 
-        header('Location: ../index.php?error=1');
+    if(isset($_GET['cat']) &&  ! ExistCategory($cat) ) 
+        header('Location: ../index.php?error=category_not_exist');
 
 ?>
 
@@ -70,9 +73,9 @@
             
                 <?php
                     if(!isset($_GET['cat']))
-                        foreach( $_SESSION['shop_data']['shop'] as $key => $value) 
+                        foreach( getCategories() as $category) 
                         {
-                            $cat = $key;
+                            $cat = $category['name'];
                             require '../php/boutique.php';
                         }
                     else

@@ -11,7 +11,7 @@ session_start();
     </head>
     
     <?php
-        include 'pages/header.php';
+        require 'pages/header.php';
 
         if( ! isset($_SESSION['shop_data']) )
             require_once 'php/varSession.inc.php'
