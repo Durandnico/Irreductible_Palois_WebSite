@@ -11,9 +11,22 @@
                 <a class="dropbtn" href="/pages/boutique.php">Boutique
         <img src="/img/dropdown.jpg" id=drop></a>
                 <div class="dropdown-content">
-                    <a id=item href="/pages/boutique.php?cat=goodies">Goodies</a>
-                    <a id=item href="/pages/boutique.php?cat=alcool">Alcool</a>
-                    <a id=item href="/pages/boutique.php?cat=Random">Autre</a>
+                    <?php
+                        $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+                        
+                        require_once $root .'/php/bdd.php';
+                        Connexion();
+                        $categories = getCategories();
+
+                        foreach ($categories as $category)
+                        {
+                            echo '<a id=item href="/pages/boutique.php?cat=' . $category['name'] . '">' . $category['name'] . '</a>';
+                        }
+                        /*
+                        <a id=item href="/pages/boutique.php?cat=alcool">Alcool</a>
+                        <a id=item href="/pages/boutique.php?cat=goodies">Goodies</a>
+                        <a id=item href="/pages/boutique.php?cat=Random">Autre</a>*/
+                    ?>
                 </div>
             </div> 
         </li>
