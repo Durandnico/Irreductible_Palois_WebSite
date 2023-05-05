@@ -5,18 +5,26 @@
         exit();
     }
 
-    $data = $_SESSION['shop_data']['shop'][$cat];
-
+    require_once 'bdd.php';
+    
+    //$data = $_SESSION['shop_data']['shop'][$cat];
+    /* Récupération des données de la catégorie */
+    Connexion();
+    $data = getProductByCategory($cat);
 ?>
 
 
 <?php
+
+    /* Récupération des données du Header de la catégorie */
+    $Header = getHeaderByCategory($cat);
+
     /* Banner intel creation */
     echo '<div class="banner_intel">';
-    echo    '<h1>' . $_SESSION['shop_data']['Header'][$cat]['titre'] . '</h1>';
-    echo    '<p> ' . $_SESSION['shop_data']['Header'][$cat]['ss-titre'] . '</p>';
+    echo    '<h1>' . $Header['title'] . '</h1>';
+    echo    '<p> ' . $Header['subtitle'] . '</p>';
     echo    '<label style="position: absolute; top:15; right:15;" class="switch">';
-    echo        '<input onclick="switch_quantity(\'' . $_SESSION['shop_data']['Header'][$cat]['quantity'] . '\');" type="checkbox" />';
+    echo        '<input onclick="switch_quantity(\'' . $Header['quantity'] . '\');" type="checkbox" />';
     echo        '<span></span>';
     echo    '</label>';
     echo    '<span style="position: absolute; bottom: 5; right: 12;">Quantité</span>';
@@ -33,8 +41,12 @@
     if(!isset($i))
         $i = 0;
 
+    /* only for Alcool, image need to be contained 
+     * I could have add it in the database but I'm lazy
+     */
     $id = "";
-    if ($cat == "alcool") $id = 'id="contain" ';
+    if ($cat == "Alcool") $id = 'id="contain" ';
+    
     foreach ($data as $key => $value) {
         if ($i % 4 == 0) {
             echo '<tr>';
