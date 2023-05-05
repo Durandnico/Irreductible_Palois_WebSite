@@ -126,13 +126,13 @@ function getProductByCategory($category) {
     global $bdd;
 
     if ($bdd == NULL)
-        return (false);
+        return "bdd not connected";
 
     $query = "SELECT * FROM Product WHERE category = '$category'";
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return (false);
+        return "query failed";
     
     $products = array();
     while ($row = mysqli_fetch_assoc($result)) {
@@ -232,5 +232,67 @@ function getProductByCategoryWithLocalId($category, $localId) {
     $product = mysqli_fetch_assoc($result);
 
     return ($product);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function getHeaderByCategory($category)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Fri 05 May 2023 - 12:34:06
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function getHeaderByCategory($category) {
+    global $bdd;
+
+    if ($bdd == NULL)
+        return "bdd not connected";
+
+    $query = "SELECT * FROM Header WHERE category = '$category'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        return "query failed";
+
+    $header = mysqli_fetch_assoc($result);
+
+    return ($header);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function ExistCategory($category)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Fri 05 May 2023 - 12:54:02
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function ExistCategory($category) {
+    global $bdd;
+
+    if ($bdd == NULL)
+        return "bdd not connected";
+
+    $query = "SELECT * FROM Category WHERE name = '$category'";
+
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        return "query failed";
+
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row == NULL)
+        return (false);
+
+    return (true);
 }
 ?>
