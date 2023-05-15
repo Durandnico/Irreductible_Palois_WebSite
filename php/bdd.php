@@ -295,4 +295,74 @@ function ExistCategory($category) {
 
     return (true);
 }
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function GetUserByLogin($login)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Sun 14 May 2023 - 05:53:00
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function GetUserByLogin($login) {
+    global $bdd;
+
+    if( $bdd == NULL)
+        return "bdd not connected";
+
+    $query = "SELECT * FROM User WHERE login = '$login'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        return "query failed";
+
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row == NULL)
+        return (false);
+
+    $products = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $products[] = $row;
+    }
+
+    return (true);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function getCartElementById($id)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Sun 14 May 2023 - 05:57:15
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function getCartElementById($id) {
+    global $bdd;
+
+    if( $bdd == NULL)
+        return "bdd not connected";
+
+    $query = "SELECT * FROM Order WHERE id = '$id'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        return "query failed";
+
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row == NULL)
+        return (false);
+
+    return (true);
+}
+
 ?>
