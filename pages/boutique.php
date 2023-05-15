@@ -10,9 +10,10 @@
     if(isset($_GET['cat']))
         $cat = $_GET['cat'];
     
-    if(isset($_GET['cat']) &&  ! ExistCategory($cat) ) 
+    if(isset($_GET['cat']) &&  ! ExistCategoryName($cat) ) 
         header('Location: ../index.php?error=category_not_exist');
 
+    $idCat = getIdCategoryByName($cat);
 ?>
 
 <html>
@@ -75,7 +76,7 @@
                     if(!isset($_GET['cat']))
                         foreach( getCategories() as $category) 
                         {
-                            $cat = $category['name'];
+                            $idCat = $category['id'];
                             require '../php/boutique.php';
                         }
                     else

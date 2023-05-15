@@ -1,6 +1,6 @@
 <?php
     
-    if(!isset($cat)){
+    if(!isset($idCat)){
         header("Location: /pages/boutique.php?error=category_not_found");
         exit();
     }
@@ -9,15 +9,25 @@
     
     //$data = $_SESSION['shop_data']['shop'][$cat];
     /* Récupération des données de la catégorie */
-    Connexion();
-    $data = getProductByCategory($cat);
+    try {
+        Connexion();
+        $data = getProductByCategoryId($idCat);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        exit();
+    }
 ?>
 
 
 <?php
 
     /* Récupération des données du Header de la catégorie */
-    $Header = getHeaderByCategory($cat);
+    try {
+        $Header = getHeaderByCategoryId($idCat);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+        exit();
+    }
 
     /* Banner intel creation */
     echo '<div class="banner_intel">';
@@ -60,7 +70,7 @@
         echo '          <h4>' . $value['name'] . '</h4>';
         echo '          <h5>' . $value['short-description'] . '</h5>';
         echo '          <h3>' . $value['price'] . '€</h3>';
-        echo '          <span class="' . $_SESSION['shop_data']['Header'][$cat]['quantity'] . '" style="visibility:hidden;">Quantité max : <span id=qte_'.$i.'>' . $value['quantity'] . '</span></span>';
+        echo '          <span class="' . $Header['quantity'] . '" style="visibility:hidden;">Quantité max : <span id=qte_'.$i.'>' . $value['quantity'] . '</span></span>';
         echo '          <button onclick="zoom_product(this)"><div class="my_filter"><p>Ajouter au panier</p></div></button>';
         echo '      </div>';
         echo '  </div>';

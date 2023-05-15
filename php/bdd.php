@@ -52,7 +52,7 @@ function Connexion() {
     $bdd = mysqli_connect(HOST, USER, PASS, DB);
 
     if ($bdd == false)
-        return (mysqli_connect_error());
+        throw new Exception(mysqli_connect_error());
 
     return (true);
 }
@@ -72,7 +72,7 @@ function Deconnexion() {
     global $bdd;
 
     if ($bdd == NULL)
-        return (false);
+        throw new Exception("bdd not connected");
 
     mysqli_close($bdd);
 
@@ -94,7 +94,7 @@ function getCategories() {
     global $bdd;
 
     if ($bdd == NULL)
-        return (false);
+        throw new Exception("bdd not connected");
 
     $query = "SELECT * FROM Category";
     $result = mysqli_query($bdd, $query);
@@ -122,17 +122,17 @@ function getCategories() {
  *  \return an array of all the products from the category
  *  \remarks --
  */
-function getProductByCategory($category) {
+function getProductByCategoryId($idcategory) {
     global $bdd;
 
     if ($bdd == NULL)
-        return "bdd not connected";
+        throw new Exception("bdd not connected");
 
-    $query = "SELECT * FROM Product WHERE category = '$category'";
+    $query = "SELECT * FROM Product WHERE idCategory = $idcategory";
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return "query failed";
+        throw new Exception("query failed");
     
     $products = array();
     while ($row = mysqli_fetch_assoc($result)) {
@@ -159,12 +159,12 @@ function lowerStock($id, $quantity) {
     global $bdd;
 
     if ($bdd == NULL)
-        return (false);
+        throw new Exception("bdd not connected");
 
     /* check if the stock is enough */
     $product = getProductById($id);
     if ($product['stock'] < $quantity)
-        return "Not enough stock";
+        throw new Exception("Not enough stock");
 
     $query = "UPDATE Product SET stock = stock - '$quantity' WHERE id = '$id'";
     $result = mysqli_query($bdd, $query);
@@ -191,7 +191,7 @@ function getProductById($id) {
     global $bdd;
 
     if($bdd == NULL)
-        return (false);
+        throw new Exception("bdd not connected");
 
     $query = "SELECT * FROM Product WHERE id = '$id'";
     $result = mysqli_query($bdd, $query);
@@ -217,13 +217,13 @@ function getProductById($id) {
  *  \return the product
  *  \remarks --
  */
-function getProductByCategoryWithLocalId($category, $localId) {
+function getProductByCategoryWithLocalId($idCategory, $localId) {
     global $bdd;
 
     if ($bdd == NULL)
-        return (false);
+        throw new Exception("bdd not connected");
 
-    $query = "SELECT * FROM Product WHERE category = '$category' AND localId = '$localId'";
+    $query = "SELECT * FROM Product WHERE idCategory = '$idCategory' AND localId = '$localId'";
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
@@ -246,17 +246,17 @@ function getProductByCategoryWithLocalId($category, $localId) {
  *  \return 
  *  \remarks 
  */
-function getHeaderByCategory($category) {
+function getHeaderByCategoryId($idCategory) {
     global $bdd;
 
     if ($bdd == NULL)
-        return "bdd not connected";
+        throw new Exception("bdd not connected");
 
-    $query = "SELECT * FROM Header WHERE category = '$category'";
+    $query = "SELECT * FROM Header WHERE idCategory = $idCategory";
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return "query failed";
+        throw new Exception("query failed");
 
     $header = mysqli_fetch_assoc($result);
 
@@ -275,18 +275,18 @@ function getHeaderByCategory($category) {
  *  \return 
  *  \remarks 
  */
-function ExistCategory($category) {
+function ExistCategoryName($Category) {
     global $bdd;
 
     if ($bdd == NULL)
-        return "bdd not connected";
+        throw new Exception("bdd not connected");
 
-    $query = "SELECT * FROM Category WHERE name = '$category'";
+    $query = "SELECT * FROM Category WHERE name = '$Category'";
 
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return "query failed";
+        throw new Exception("query failed");
 
     $row = mysqli_fetch_assoc($result);
 
@@ -312,25 +312,20 @@ function GetUserByLogin($login) {
     global $bdd;
 
     if( $bdd == NULL)
-        return "bdd not connected";
+        throw new Exception("bdd not connected");
 
     $query = "SELECT * FROM User WHERE login = '$login'";
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return "query failed";
+        throw new Exception("query failed");
 
-    $row = mysqli_fetch_assoc($result);
-
-    if ($row == NULL)
-        return (false);
-
-    $products = array();
+    $users = array();
     while ($row = mysqli_fetch_assoc($result)) {
-        $products[] = $row;
+        $users[] = $row;
     }
 
-    return (true);
+    return ($users);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -349,20 +344,49 @@ function getCartElementById($id) {
     global $bdd;
 
     if( $bdd == NULL)
-        return "bdd not connected";
+        throw new Exception("bdd not connected");
 
     $query = "SELECT * FROM Order WHERE id = '$id'";
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return "query failed";
+        throw new Exception("query failed");
+
+    $row = mysqli_fetch_assoc($result);
+
+    return ($row);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function getIdCategoryByName($nameCategory)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Mon 15 May 2023 - 18:08:10
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function getIdCategoryByName($nameCategory) {
+    global $bdd;
+
+    if( $bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    $query = "SELECT * FROM Category WHERE name = '$nameCategory'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
 
     $row = mysqli_fetch_assoc($result);
 
     if ($row == NULL)
         return (false);
 
-    return (true);
+    return ($row['id']);
 }
 
 ?>
