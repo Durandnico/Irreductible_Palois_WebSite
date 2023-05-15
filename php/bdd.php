@@ -43,7 +43,7 @@ $bdd = NULL;
  *  \version 0.1
  *  \date Fri 05 May 2023 - 10:22:30
  *  \brief connect to the database
- *  \return true if the connexion is open, false otherwise (return the error if the connexion failed)
+ *  \return true if the connexion is open, throw Exception otherwise (return the error if the connexion failed)
  *  \remarks --
  */
 function Connexion() {
@@ -65,7 +65,7 @@ function Connexion() {
  *  \version 0.1
  *  \date Fri 05 May 2023 - 10:27:52
  *  \brief disconnect from the database
- *  \return true if the connexion is closed, false otherwise (if the connexion is not open)
+ *  \return true if the connexion is closed, throw Exception otherwise (if the connexion is not open)
  *  \remarks need to call Connexion() before
  */
 function Deconnexion() {
@@ -100,7 +100,7 @@ function getCategories() {
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return (false);
+        throw new Exception("query failed");
 
     $categories = array();
     while ($row = mysqli_fetch_assoc($result)) {
@@ -152,7 +152,7 @@ function getProductByCategoryId($idcategory) {
  *  \brief lower the stock of a product
  *  \param $id        : the id of the product
  *  \param $quantity  : the quantity to lower
- *  \return true if the stock is lowered, false otherwise
+ *  \return true if the stock is lowered, throw Exception otherwise
  *  \remarks --
  */
 function lowerStock($id, $quantity) {
@@ -163,6 +163,7 @@ function lowerStock($id, $quantity) {
 
     /* check if the stock is enough */
     $product = getProductById($id);
+
     if ($product['stock'] < $quantity)
         throw new Exception("Not enough stock");
 
@@ -170,7 +171,7 @@ function lowerStock($id, $quantity) {
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return (false);
+        throw new Exception("query failed");
 
     return (true);
 }
@@ -197,7 +198,7 @@ function getProductById($id) {
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return (false);
+        throw new Exception("query failed");
         
     $product = mysqli_fetch_assoc($result);
 
@@ -227,7 +228,7 @@ function getProductByCategoryWithLocalId($idCategory, $localId) {
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
-        return (false);
+    throw new Exception("query failed");
 
     $product = mysqli_fetch_assoc($result);
 
@@ -237,14 +238,14 @@ function getProductByCategoryWithLocalId($idCategory, $localId) {
 /* -------------------------------------------------------------------------- */
 
 /*!
- *  \fn function getHeaderByCategory($category)
+ *  \fn function getHeaderByCategory($idCategory)
  *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
  *  \version 0.1
  *  \date Fri 05 May 2023 - 12:34:06
- *  \brief 
- *  \param 
- *  \return 
- *  \remarks 
+ *  \brief get the header of a category
+ *  \param $idCategory  : the id of the category
+ *  \return the header
+ *  \remarks --
  */
 function getHeaderByCategoryId($idCategory) {
     global $bdd;
@@ -266,16 +267,16 @@ function getHeaderByCategoryId($idCategory) {
 /* -------------------------------------------------------------------------- */
 
 /*!
- *  \fn function ExistCategory($category)
+ *  \fn function ExistCategory($categoryName)
  *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
  *  \version 0.1
  *  \date Fri 05 May 2023 - 12:54:02
- *  \brief 
- *  \param 
- *  \return 
- *  \remarks 
+ *  \brief check if a category exist
+ *  \param $categoryName : the name of the category
+ *  \return true if the category exist, throw Exception otherwise
+ *  \remarks --
  */
-function ExistCategoryName($Category) {
+function ExistCategoryName($categoryName) {
     global $bdd;
 
     if ($bdd == NULL)
@@ -290,9 +291,6 @@ function ExistCategoryName($Category) {
 
     $row = mysqli_fetch_assoc($result);
 
-    if ($row == NULL)
-        return (false);
-
     return (true);
 }
 
@@ -303,10 +301,10 @@ function ExistCategoryName($Category) {
  *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
  *  \version 0.1
  *  \date Sun 14 May 2023 - 05:53:00
- *  \brief 
- *  \param 
- *  \return 
- *  \remarks 
+ *  \brief get a user from its login
+ *  \param $login   : the login of the user
+ *  \return the user
+ *  \remarks --
  */
 function GetUserByLogin($login) {
     global $bdd;
@@ -335,10 +333,10 @@ function GetUserByLogin($login) {
  *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
  *  \version 0.1
  *  \date Sun 14 May 2023 - 05:57:15
- *  \brief 
- *  \param 
- *  \return 
- *  \remarks 
+ *  \brief get a cart element from its id
+ *  \param $id  : the id of the cart element
+ *  \return the cart element
+ *  \remarks --
  */
 function getCartElementById($id) {
     global $bdd;
@@ -364,10 +362,10 @@ function getCartElementById($id) {
  *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
  *  \version 0.1
  *  \date Mon 15 May 2023 - 18:08:10
- *  \brief 
- *  \param 
- *  \return 
- *  \remarks 
+ *  \brief get the id of a category from its name
+ *  \param $nameCategory    : the name of the category
+ *  \return the id of the category
+ *  \remarks --
  */
 function getIdCategoryByName($nameCategory) {
     global $bdd;
@@ -382,9 +380,6 @@ function getIdCategoryByName($nameCategory) {
         throw new Exception("query failed");
 
     $row = mysqli_fetch_assoc($result);
-
-    if ($row == NULL)
-        return (false);
 
     return ($row['id']);
 }
