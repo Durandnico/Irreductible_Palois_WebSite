@@ -4,6 +4,12 @@ CREATE DATABASE irreductible_palois;
 USE irreductible_palois;
 
 
+CREATE TABLE Category(
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
 CREATE TABLE Product(
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
@@ -29,16 +35,11 @@ CREATE TABLE Header(
     FOREIGN KEY (idCategory) REFERENCES Category(id)
 );
 
-CREATE TABLE Category(
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id)
-);
-
 
 CREATE TABLE User(
     id INT NOT NULL AUTO_INCREMENT,
-    surenam VARCHAR(10) NOT NULL,
+    login VARCHAR(255) NOT NULL,
+    surenam VARCHAR(16) NOT NULL,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );

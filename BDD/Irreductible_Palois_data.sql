@@ -1,5 +1,10 @@
---path: BDD/Irreductible_Palois_data.sql
+-- Path: BDD/Irreductible_Palois_data.sql
 USE irreductible_palois;
+
+/* Category */
+INSERT INTO Category VALUES (null, 'Goodies');
+INSERT INTO Category VALUES (null, 'Alcool');
+INSERT INTO Category VALUES (null, 'Random');
 
 /* Goodies */
 INSERT INTO Product VALUES (null, 'Casque polonais (légérement abimé)','/img/casquePolonais.png','casquePolonais','Outil parfait pour initiation de famille','Ce casque est le légendaire casque de Sylvain, utilisé de génération en génération pour l''initation de famille il porte encore les marques des passages précédents.',69,1,0,1);
@@ -31,11 +36,6 @@ INSERT INTO Product VALUES (null,'Balais à chiotte','/img/Goat.jpg','Balais à 
 INSERT INTO Header VALUES (null, 'Les goodies', 'Soyer-unique avec vos goodies des irréductibles', 'q_max_goodies', 1);
 INSERT INTO Header VALUES (null, 'Les alcools', 'Pour ne pas venir aux soirées les mains vides ;)', 'q_max_OH', 2);
 INSERT INTO Header VALUES (null, 'Les aléatoires', "Random stuff (images non contractuelless)<p>PS : c'est les copains et ils sont d'accord</p>", 'q_max_autre', 3);
-
-/* Category */
-INSERT INTO Category VALUES (null, 'Goodies');
-INSERT INTO Category VALUES (null, 'Alcool');
-INSERT INTO Category VALUES (null, 'Random');
 
 /* User */
 INSERT INTO User VALUES (1, "admin", "administrator", "admin");
