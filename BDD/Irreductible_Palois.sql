@@ -39,8 +39,9 @@ CREATE TABLE Header(
 CREATE TABLE User(
     id INT NOT NULL AUTO_INCREMENT,
     login VARCHAR(255) NOT NULL,
-    surenam VARCHAR(16) NOT NULL,
+    surname VARCHAR(16) NOT NULL,
     password VARCHAR(255) NOT NULL,
+    connected BOOLEAN NOT NULL,
     PRIMARY KEY (id)
 );
 

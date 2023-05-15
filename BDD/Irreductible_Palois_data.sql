@@ -38,8 +38,8 @@ INSERT INTO Header VALUES (null, 'Les alcools', 'Pour ne pas venir aux soirées 
 INSERT INTO Header VALUES (null, 'Les aléatoires', "Random stuff (images non contractuelless)<p>PS : c'est les copains et ils sont d'accord</p>", 'q_max_autre', 3);
 
 /* User */
-INSERT INTO User VALUES (1, "admin", "administrator", "admin");
-Insert INTO User VALUES (null, "Paularis", "BDE", "Titoua49.3");
+INSERT INTO User VALUES (1, "admin", "administrator", "admin", FALSE);
+Insert INTO User VALUES (null, "Paularis", "BDE", "Titoua49.3", FALSE);
 
 /* Admin */
 INSERT INTO Admin Values (null, 1);

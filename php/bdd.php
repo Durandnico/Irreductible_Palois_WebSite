@@ -22,7 +22,6 @@
  *
  */
 
-
 /* **************************************************************************** */
 /*                                  INCLUDES                                    */
 
@@ -72,11 +71,30 @@ function Deconnexion() {
     global $bdd;
 
     if ($bdd == NULL)
-        throw new Exception("bdd not connected");
+        throw new mysqli_sql_exception("bdd not connected"); 
+        //throw new Exception("bdd not connected", 1, NULL);
 
     mysqli_close($bdd);
 
     return (true);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function isBddConnected()
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Mon 15 May 2023 - 22:25:03
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function isBddConnected() {
+    global $bdd;
+
+    return ($bdd != NULL);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -282,7 +300,7 @@ function ExistCategoryName($categoryName) {
     if ($bdd == NULL)
         throw new Exception("bdd not connected");
 
-    $query = "SELECT * FROM Category WHERE name = '$Category'";
+    $query = "SELECT * FROM Category WHERE name = '$categoryName'";
 
     $result = mysqli_query($bdd, $query);
 
@@ -324,6 +342,118 @@ function GetUserByLogin($login) {
     }
 
     return ($users);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function getAllUsers()
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Mon 15 May 2023 - 22:11:27
+ *  \brief get all the users
+ *  \return all the users
+ *  \remarks --
+ */
+function getAllUsers() {
+    global $bdd;
+
+    if( $bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    $query = "SELECT * FROM User";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    $users = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $users[] = $row;
+    }
+
+    return ($users);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function loginUserById($idUser)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Mon 15 May 2023 - 22:12:31
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function loginUserById ($idUser) {
+    global $bdd;
+
+    if( $bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    $query = "UPDATE User SET connected = TRUE WHERE id = '$idUser'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    return (true);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function logoutUserById($idUser)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Mon 15 May 2023 - 22:15:27
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function logoutUserById ($idUser) {
+    global $bdd;
+
+    if( $bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    $query = "UPDATE User SET connected = false WHERE id = '$idUser'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    return (true);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function insertUser($login, $surname, $password, $connected)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Mon 15 May 2023 - 22:43:32
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function insertUser($login, $surname, $password, $connected) {
+    global $bdd;
+
+    if( $bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    $query = "INSERT INTO User VALUES (null, '$login', '$surname', '$password', '$connected')";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    return (GetUserByLogin($login));
 }
 
 /* -------------------------------------------------------------------------- */
@@ -383,5 +513,8 @@ function getIdCategoryByName($nameCategory) {
 
     return ($row['id']);
 }
+
+/* -------------------------------------------------------------------------- */
+
 
 ?>
