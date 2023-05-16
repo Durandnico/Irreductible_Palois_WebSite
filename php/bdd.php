@@ -566,12 +566,7 @@ function addCart($idUser, $idProduct, $quantity) {
     if ($bdd == NULL)
         throw new Exception("bdd not connected");
 
-    /* check if the stock is enough */
-    $product = getProductById($idProduct);
-
-    if ($product['quantity'] < $quantity)
-        throw new Exception("Not enough stock");
-
+    
     $query = "INSERT INTO Cart VALUES (null, '$idUser', '$idProduct', '$quantity')";
     $result = mysqli_query($bdd, $query);
 
@@ -581,4 +576,35 @@ function addCart($idUser, $idProduct, $quantity) {
     return (true);
 }
 
+/* -------------------------------------------------------------------------- */
+
+/**
+ *  @fn function is_admin($idUser)
+ *  @author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  @version 0.1
+ *  @date Tue 16 May 2023 - 16:59:35
+ *  @brief 
+ *  @param 
+ *  @return 
+ *  @remarks 
+ */
+function is_admin($idUser) {
+    global $bdd;
+
+    if ($bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    $query = "SELECT * FROM Admin WHERE idUser = '$idUser'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    $row = mysqli_fetch_assoc($result);
+
+    if ($row != null)
+        return (true);
+    else
+        return (false);
+}
 ?>

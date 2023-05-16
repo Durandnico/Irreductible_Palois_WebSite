@@ -32,11 +32,13 @@
     echo '<div class="banner_intel">';
     echo    '<h1>' . $Header['title'] . '</h1>';
     echo    '<p> ' . $Header['subtitle'] . '</p>';
-    echo    '<label style="position: absolute; top:15; right:15;" class="switch">';
-    echo        '<input onclick="switch_quantity(\'' . $Header['quantity'] . '\');" type="checkbox" />';
-    echo        '<span></span>';
-    echo    '</label>';
-    echo    '<span style="position: absolute; bottom: 5; right: 12;">Quantité</span>';
+    if ($_SESSION['user_data']['admin']) {
+        echo    '<label style="position: absolute; top:15; right:15;" class="switch">';
+        echo        '<input onclick="switch_quantity(\'' . $Header['quantity'] . '\');" type="checkbox" />';
+        echo        '<span></span>';
+        echo    '</label>';
+        echo    '<span style="position: absolute; bottom: 5; right: 12;">Quantité</span>';
+    }
     echo '</div>';
 
 

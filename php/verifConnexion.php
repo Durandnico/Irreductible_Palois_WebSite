@@ -30,7 +30,6 @@
 /*                                  INCLUDE                                     */
 
 require_once 'bdd.php';
-Connexion();
 
 /* **************************************************************************** */
 /*                                  Function                                    */
@@ -69,6 +68,10 @@ function verif_connexion($username, $password) {
 /*                                  Main                                        */
 
 session_start();
+
+if (!isBddConnected())
+    Connexion();
+    
 /* if the user is already connected, he is redirected to the home page */
 if(isset($_SESSION['user_data']['inscription']))
 {
@@ -87,7 +90,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         /* we create the session variable */
         $_SESSION['user_data']['id'] = (int) $arr['id'];
         $_SESSION['user_data']['surname'] = (string) $arr['surname'];
-
+        $_SESSION['user_data']['admin'] = is_admin((int) $arr['id']);
         /* we change the value of the connected attribute to true */
         try {
             loginUserById((int)($arr['id']));

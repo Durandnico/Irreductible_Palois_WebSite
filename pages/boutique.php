@@ -83,6 +83,7 @@
                         foreach( getCategories() as $category) 
                         {
                             $idCat = $category['id'];
+                            $cat = $category['name'];
                             require '../php/boutique.php';
                         }
                     else

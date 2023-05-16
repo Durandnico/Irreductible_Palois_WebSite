@@ -269,7 +269,7 @@ async function add_to_cart(that) {
             add_dom_cart(post, qte.value, price, img);
 
             /* update the quantity */
-            let base_qte = document.getElementById("qte_" + id);
+            let base_qte = document.getElementById("qte_" + (--id));
             let q_max = document.getElementById("q_max");
             base_qte.innerHTML = parseInt(base_qte.innerHTML) - parseInt(qte.value);
             q_max.innerHTML = base_qte.innerHTML;
