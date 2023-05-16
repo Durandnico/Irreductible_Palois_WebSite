@@ -22,7 +22,9 @@
  *
  *
  */
-
+/* **************************************************************************** */
+/*                                  INCLUDE                                     */
+require_once 'bdd.php';
 
 /* **************************************************************************** */
 /*                                  DEFINE                                      */
@@ -43,46 +45,22 @@ define("VALID_USERNAME", "/^[a-zA-Z-_.0-9]+$/");
  *  \date Wed 12 April 2023 - 20:22:07
  *  \brief check if the username is already in the database
  *  \param $username    :  username to check
- *  \param $file        :  file to read
  *  \return false if the username is not in the database or true if it is
  *  \remarks 
  */
-function check_user($username, $file = FILE_XML) {
-
-    $xml = simplexml_load_file($file);
-
-    foreach ($xml->user as $user) 
+function check_user($username) {
+    try {
+        $users = getAllUsers();
+    } catch (Exception $e) {
+        echo $e->getMessage() . " in addInscription.php - check_user()\n";
+        exit();
+    }
+    
+    foreach ($users as $user) 
         if ($user->username == $username)
             return true;
 
     return false;
-}
-
-/*!
- *  \fn function add_user($id, $username, $password, $surname, $file = FILE_XML)
- *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
- *  \version 0.1
- *  \date Wed 12 April 2023 - 20:23:51
- *  \brief 
- *  \param
- *  \return 
- *  \remarks 
- */
-function add_user($id, $username, $password, $surname, $file = FILE_XML) {
-    
-    $xml = simplexml_load_file($file);
-
-    $user = $xml->addChild('user');
-    $user->addChild('id', $id);
-    $user->addChild('username', $username);
-    $user->addChild('password', $password);
-    $user->addChild('surname', $surname);
-    $user->addChild('connected', 'true\n');
-
-    $xml->asXML($file);
-
-    return ( check_user($username, $file) );
-
 }
 
 /* **************************************************************************** */
@@ -90,6 +68,10 @@ function add_user($id, $username, $password, $surname, $file = FILE_XML) {
 
 session_start();
 
+if ( !isBddConnected())
+    Connexion();
+
+/* check if the user is already connected */
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['surname'])) {
     
     /* check if they norm */
@@ -115,28 +97,30 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['surn
         exit();
     }
 
+
     if (check_user($_POST['username'])) {
-        echo "Username already used";
         header("Location: /pages/connexion.php?error=username_already_used");
         exit();
     }
 
-    $xml = simplexml_load_file(FILE_XML);
-
-    if (add_user( count($xml->user) , $_POST['username'], $_POST['password'], $_POST['surname'])) {
-        echo "User added";
-        
-        /* add to the user sesion */
-        $_SESSION['user_data']['inscription'] = true;
-        $_SESSION['user_data']['id'] = count($xml->user) + 1;
-        $_SESSION['user_data']['surname'] = $_POST['surname'];
-
-        header("Location: /index.php?sucess=signUp");
+    /* add the user */
+    try {
+        $newUser = insertUser( $_POST['username'], $_POST['password'], $_POST['surname'], 1);
+    }
+    catch (Exception $e) {
+        header("Location: /pages/connexion.php?error=".$e->getMessage());
         exit();
-    } 
+    }
+    echo "User added";
+    
+    /* add to the user sesion */
+    $_SESSION['user_data']['inscription'] = true;
+    $_SESSION['user_data']['id'] = $newUser['id'];
+    $_SESSION['user_data']['surname'] = $_POST['surname'];
+    
+    header("Location: /index.php?sucess=signUp");
+    exit();
 
-    echo "Error";
-    header("Location: /pages/connexion.php?error=error_add_user");
 }
 
 header("Location: /pages/connexion.php?error=form_not_filled");

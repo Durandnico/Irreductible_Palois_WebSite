@@ -1,23 +1,37 @@
 <?php
     session_start();
-
-    //define(FILE_XML, "../data/user.xml");
+    require_once 'bdd.php';
+    if( !isBddConnected())
+        try {
+            Connexion();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    echo "Déconnexion de l'utilisateur...";
+    echo $_SESSION['user_data']['id'];
+    try{
+        logoutUserById($_SESSION['user_data']['id']);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
     
-    $file = "../data/user.xml";
-
-    /* set user to offline */
-    $xml = simplexml_load_file($file);
+    echo "Déconnexion en cours...";
     
-    /* if the file is not found */
-    if(!$xml)
-        echo 'error';
+    try {
+        Deconnexion();
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
 
-    $xml->user[(int) $_SESSION['user_data']['id']]->connected = "false";
-    $xml->asXML($file);
+    echo "Déconnexion réussie";
 
-    unset($xml);
-    
-    session_destroy();
+    if( !session_destroy())
+    {
+        echo "Erreur lors de la déconnexion";
+        exit();
+    }
+
+    echo "Redirection vers la page d'accueil...";
 
     Header("Location: /index.php");
 ?>

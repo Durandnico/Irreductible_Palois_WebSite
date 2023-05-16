@@ -27,50 +27,13 @@
 
 
 /* **************************************************************************** */
-/*                                  DEFINE                                      */
+/*                                  INCLUDE                                     */
 
-define("FILE_XML", "../data/user.xml");
+require_once 'bdd.php';
+Connexion();
 
 /* **************************************************************************** */
 /*                                  Function                                    */
-
-/*!
- *  \fn function get_data_xml($file, $delimiter=';')
- *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
- *  \version 0.1
- *  \date Wed 12 April 2023 - 18:12:56
- *  \brief get data from a csv file
- *  \param $file        :  file to read
- *  \param $delimiter   :  delimiter of the file
- *  \return array       :  array of all users account
- *  \details
- *      in the return array, each line is an array of the balise <user> of the xml file
- *      [0] is the id
- *      [1] is the username
- *      [2] is the password
- *      [3] is the surname
- *      [4] is the connection status
- */
-function get_data_xml($file = FILE_XML) {
-    
-    $xml = simplexml_load_file($file);
-    
-    $data = array();
-
-    $i = 0;
-    foreach ($xml as $user) {
-        $data[$i] = array();
-        $data[$i]['id'] = $user->id;
-        $data[$i]['username'] = $user->username;
-        $data[$i]['password'] = $user->password;
-        $data[$i]['surname'] = $user->surname;
-        $i++;
-    }
-    
-    return ($data);
-}
-
-/* ---------------------------------------------------------------------------- */
 
 /*!
  *  \fn function verif_connexion($username, $password)
@@ -83,44 +46,23 @@ function get_data_xml($file = FILE_XML) {
  *  \return the arr with all data surname if he is in the database, null otherwise 
  */
 function verif_connexion($username, $password) {
-    $data = get_data_xml("../data/user.xml");
+
+    try {
+        $data = getAllUsers();
+    } catch (Exception $e) {
+        echo $e->getMessage() . " in verifConnexion.php - verif_connexion()\n";
+        exit();
+    }
 
     $i = 0;
     while ($data[$i]) {
-        if ($data[$i]['username'] == $username && $data[$i]['password'] == $password)
+        if ($data[$i]['login'] == $username && $data[$i]['password'] == $password)
             return ($data[$i]);
 
         $i++;
     }
 
     return (null);
-}
-
-/* ---------------------------------------------------------------------------- */
-
-/*!
- *  \fn function log_in($id)
- *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
- *  \version 0.1
- *  \date Wed 12 April 2023 - 19:51:25
- *  \brief change the value of the connected attribute to true in the xml file
- *  \param $id      :  id of the user
- *  \param $file    :  file to write
- *  \return 0 if the function is successful, -1 otherwise
- */
-function log_in($id, $file = FILE_XML) {
-    
-    $xml = simplexml_load_file($file);
-    
-    /* if the file is not found */
-    if(!$xml)
-        return (-1);
-
-    $xml->user[(int) $id]->connected = "true";
-    $xml->asXML($file);
-
-    unset($xml);
-    return (0);
 }
 
 /* **************************************************************************** */
@@ -140,16 +82,19 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $arr = verif_connexion($_POST['username'], $_POST['password']);
     
     /* if so we create the session and redirect him to the home page */
-    if ($arr) {
+    if ($arr != null) {
 
         /* we create the session variable */
         $_SESSION['user_data']['id'] = (int) $arr['id'];
         $_SESSION['user_data']['surname'] = (string) $arr['surname'];
 
         /* we change the value of the connected attribute to true */
-        $check = log_in($arr['id']);
-        if ($check == -1)
-            header('Location: /pages/connexion.php?error=error_log_in');
+        try {
+            loginUserById((int)($arr['id']));
+        } catch (Exception $e) {
+            header('Location: /pages/connexion.php?error=' . $e->getMessage());
+            exit();
+        }
             
         header('Location: /index.php?success=signIn');
     }
