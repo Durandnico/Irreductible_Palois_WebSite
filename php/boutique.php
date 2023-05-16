@@ -10,7 +10,6 @@
     //$data = $_SESSION['shop_data']['shop'][$cat];
     /* Récupération des données de la catégorie */
     try {
-        Connexion();
         $data = getProductByCategoryId($idCat);
     } catch (Exception $e) {
         echo $e->getMessage();

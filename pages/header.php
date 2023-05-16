@@ -15,7 +15,15 @@
                         $root = realpath($_SERVER["DOCUMENT_ROOT"]);
                         
                         require_once $root .'/php/bdd.php';
-                        Connexion();
+
+                        if ( !isBddConnected() )
+                        try {
+                            Connexion();
+                        } catch (Exception $e) {
+                            echo $e->getMessage();
+                        }
+
+                        echo isBddConnected();
                         $categories = getCategories();
 
                         foreach ($categories as $category)

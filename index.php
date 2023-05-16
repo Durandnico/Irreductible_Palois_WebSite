@@ -13,7 +13,7 @@ session_start();
     <?php
         require 'pages/header.php';
 
-        if( ! isset($_SESSION['shop_data']) )
+        if( ! isset($_SESSION['user_data']))
             require_once 'php/varSession.inc.php'
     ?>
     

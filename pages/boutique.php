@@ -2,13 +2,19 @@
     session_start();
     
     require_once '../php/bdd.php';
-    Connexion();
+    if ( !isBddConnected() )
+        try {
+            Connexion();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
 
     if(!isset($_SESSION['user_data']['id']))
         header('Location: connexion.php?error=must_be_connected');
 
     if(isset($_GET['cat']))
         $cat = $_GET['cat'];
+    
     
     if(isset($_GET['cat']) &&  ! ExistCategoryName($cat) ) 
         header('Location: ../index.php?error=category_not_exist');
