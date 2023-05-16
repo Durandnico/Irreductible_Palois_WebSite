@@ -181,11 +181,10 @@ function lowerStock($id, $quantity) {
 
     /* check if the stock is enough */
     $product = getProductById($id);
+    if ($product['quantity'] < $quantity)
+        throw new Exception("Not enough stock (". $product['quantity'] ."/". $quantity ." )");
 
-    if ($product['stock'] < $quantity)
-        throw new Exception("Not enough stock");
-
-    $query = "UPDATE Product SET stock = stock - '$quantity' WHERE id = '$id'";
+    $query = "UPDATE Product SET quantity = quantity - '$quantity' WHERE id = '$id'";
     $result = mysqli_query($bdd, $query);
 
     if ($result == false)
@@ -516,5 +515,70 @@ function getIdCategoryByName($nameCategory) {
 
 /* -------------------------------------------------------------------------- */
 
+/*!
+ *  \fn function incCartStock($idUser, $idProduct, $quantity)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Tue 16 May 2023 - 13:21:37
+ *  \brief increment the stock of a product in the cart of a user by a quantity
+ *  \param $idUser      : the id of the user
+ *  \param $idProduct   : the id of the product
+ *  \param $quantity    : the quantity to increment
+ *  \return 
+ *  \remarks -- 
+ */
+function incCartStock($idUser, $idProduct, $quantity) {
+    global $bdd;
+
+    if ($bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    /* check if the stock is enough */
+    $product = getProductById($idProduct);
+
+    if ($product['quantity'] < $quantity)
+        throw new Exception("Not enough stock");
+
+    $query = "UPDATE Cart SET quantity = quantity + '$quantity' WHERE idProduct = '$idProduct' AND idUser = '$idUser'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    return (true);
+}
+
+/* -------------------------------------------------------------------------- */
+
+/*!
+ *  \fn function addCart($idUser, $idProduct, $quantity)
+ *  \author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  \version 0.1
+ *  \date Tue 16 May 2023 - 13:28:55
+ *  \brief 
+ *  \param 
+ *  \return 
+ *  \remarks 
+ */
+function addCart($idUser, $idProduct, $quantity) {
+    global $bdd;
+
+    if ($bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    /* check if the stock is enough */
+    $product = getProductById($idProduct);
+
+    if ($product['quantity'] < $quantity)
+        throw new Exception("Not enough stock");
+
+    $query = "INSERT INTO Cart VALUES (null, '$idUser', '$idProduct', '$quantity')";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    return (true);
+}
 
 ?>

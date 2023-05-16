@@ -61,7 +61,7 @@
             echo '<tr>';
         }
         echo '<td>';
-        echo '  <div class="product" id='. $i .'>';
+        echo '  <div class="product" id='. $value['id'] .'>';
         echo '      <div class="product-img">';
         echo '          <img src="' . $value['image'] . '" ' . $id . ' alt="' . $value['alt'] . '" />';
         echo '      </div>';

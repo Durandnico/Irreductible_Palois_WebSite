@@ -260,12 +260,11 @@ async function add_to_cart(that) {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: "product=" + post + "&quantity=" + qte.value + "&price=" + price + "&img=" + img
+        body: "product=" + post + "&quantity=" + qte.value + "&price=" + price + "&img=" + img +"&id=" + id 
     })
     .then(response => response.text())
     .then(function(data) {
         
-        console.log(data);
         if (data == "OK"){
             add_dom_cart(post, qte.value, price, img);
 
@@ -280,7 +279,7 @@ async function add_to_cart(that) {
             close_zoomed_product();
         }
         else
-            console.log("KO");
+            alert(data);
     })
     .catch(err => console.log(err));
     
@@ -301,16 +300,18 @@ async function add_to_cart(that) {
  *  \remarks 
  */
 function add_dom_cart(post, qte, price, img) {
-    
+    console.log("add_dom_cart");    
 
     /* remove "empty cart" */
     if(document.getElementsByClassName("empty_cart").length == 1)
-    document.getElementsByClassName("empty_cart")[0].remove();
+        document.getElementsByClassName("empty_cart")[0].remove();
 
     /* verify if the product is already in the cart */
     for(let item of document.getElementsByClassName("cart_entry_intels_name")){
         if (item.innerHTML == post){
+            /* update the quantity localy*/
             item.parentNode.children[1].innerHTML = parseInt(item.parentNode.children[1].innerHTML) + parseInt(qte);
+            
             return (0);
         }
     }
@@ -351,7 +352,7 @@ function add_dom_cart(post, qte, price, img) {
     cart_entry.style.id = "item";
     document.getElementById("cart").appendChild(cart_entry);
 
-    /* of you survive the DOM, well played :) */
+    /* you survive the DOM, well played :) */
 
     return (0);
 }
