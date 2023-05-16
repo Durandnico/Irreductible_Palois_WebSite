@@ -607,4 +607,43 @@ function is_admin($idUser) {
     else
         return (false);
 }
+
+/* -------------------------------------------------------------------------- */
+
+/**
+ *  @fn function getCartByUserId($idUser)
+ *  @author DURAND Nicolas Erich Pierre <durandnico@cy-tech.fr>
+ *  @version 0.1
+ *  @date Tue 16 May 2023 - 17:07:28
+ *  @brief 
+ *  @param 
+ *  @return 
+ *  @remarks 
+ */
+function getCartByUserId($idUser) {
+    global $bdd;
+
+    if ($bdd == NULL)
+        throw new Exception("bdd not connected");
+
+    $query = "SELECT * FROM Cart WHERE idUser = '$idUser'";
+    $result = mysqli_query($bdd, $query);
+
+    if ($result == false)
+        throw new Exception("query failed");
+
+    $cart = array();
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $cart[] = $row;
+    }
+
+    $result = array();
+    foreach ($cart as $prod) {
+        $result[] = getProductById($prod['idProduct']);
+        $result[count($result) - 1]['quantity'] = $cart[count($result) - 1]['quantity'];
+    }
+
+    return ($result);
+}
 ?>

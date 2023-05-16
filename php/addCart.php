@@ -98,7 +98,7 @@ else {
     $_SESSION['cart'][$_POST['product']]['price'] = $_POST['price'];
     $_SESSION['cart'][$_POST['product']]['quantity'] = $_POST['quantity'];
     $_SESSION['cart'][$_POST['product']]['name'] = $_POST['product'];
-    $_SESSION['cart'][$_POST['product']]['img'] = $_POST['img'];
+    $_SESSION['cart'][$_POST['product']]['image'] = $_POST['img'];
     /* add in the database */
     try {
         addCart($_SESSION['user_data']['id'], $find['id'], $_POST['quantity']);

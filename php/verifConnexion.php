@@ -71,7 +71,7 @@ session_start();
 
 if (!isBddConnected())
     Connexion();
-    
+
 /* if the user is already connected, he is redirected to the home page */
 if(isset($_SESSION['user_data']['inscription']))
 {
@@ -94,6 +94,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         /* we change the value of the connected attribute to true */
         try {
             loginUserById((int)($arr['id']));
+        } catch (Exception $e) {
+            header('Location: /pages/connexion.php?error=' . $e->getMessage());
+            exit();
+        }
+
+        /* load the cart */
+        try {
+            $_SESSION['cart'] = getCartByUserId((int) $arr['id']);
         } catch (Exception $e) {
             header('Location: /pages/connexion.php?error=' . $e->getMessage());
             exit();

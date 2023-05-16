@@ -55,7 +55,7 @@
             else {
                 foreach ($_SESSION['cart'] as $key => $value) {
                     echo    '<div id=item class="cart_entry">
-                                <img src="' . $value['img'] . '" alt="' . $key . '" class="cart_entry_img"/>
+                                <img src="' . $value['image'] . '" alt="' . $key . '" class="cart_entry_img"/>
                                 <div class="cart_entry_intels">
                                     <span class="cart_entry_intels_name" style="font-weight: bold;">' . $value['name'] . '</span>
                                     <span class="cart_entry_intels_quantity">' . $value['quantity'] . 'x</span>
