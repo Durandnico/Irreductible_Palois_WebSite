@@ -22,6 +22,7 @@ INSERT INTO Product VALUES (null,'Ricard','/img/ricard.webp','Ricard','Midi et q
 INSERT INTO Product VALUES (null,'Jägermeister','/img/jager.webp','Jägermeister','A base de plante, comme un tête de chanvre','...',22,300,4,2);
 INSERT INTO Product VALUES (null,'Baileys','/img/Baileys.png','Baileys','Pour remplacer le café','...',12,15,5,2);
 INSERT INTO Product VALUES (null,'Maydie','/img/Maydie.png','Maydie','Vin rouge sucré et fruité','...',15,5,6,2);
+
 /* Random */
 INSERT INTO Product VALUES (null,'NH-90 Bi-turbines','/img/Ugo.jpg','NH-90','Le meilleur des hélicoptères','...',69420,1,0,3);
 INSERT INTO Product VALUES (null,'Mois d''abonnement Dofus','/img/Leop.jpg','Dofus','Pour le meilleur gaming possible','...',5,999,1,3);
@@ -39,7 +40,7 @@ INSERT INTO Header VALUES (null, 'Les aléatoires', "Random stuff (images non co
 
 /* User */
 INSERT INTO User VALUES (1, "admin", "administrator", "admin", FALSE);
-Insert INTO User VALUES (null, "Paularis", "BDE", "Titoua49.3", FALSE);
+Insert INTO User VALUES (null, "Paularis", "BDE", "Titouan49.3", FALSE);
 
 /* Admin */
 INSERT INTO Admin Values (null, 1);

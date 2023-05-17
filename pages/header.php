@@ -50,7 +50,7 @@
                     <a class="dropbtn" ><img src="/img/panier.jpg" class=main_logo></a>
                     <div class="dropdown-content" id="cart">';
             
-            if(!isset($_SESSION['cart']))
+            if( count($_SESSION['cart']) == 0)
                 echo   '<p id=item class="empty_cart">Le panier est vide</p>';
             else {
                 foreach ($_SESSION['cart'] as $key => $value) {
